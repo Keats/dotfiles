@@ -1,0 +1,6 @@
+Dependencies:
+
+- urxvt (with https://aur.archlinux.org/packages/urxvt-perls-git/)
+- compton
+- zsh
+- oh-my-zsh

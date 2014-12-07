@@ -1,0 +1,71 @@
+urxvt*termName:	rxvt
+URxvt*buffered: true
+URxvt*intensityStyles:    True
+URxvt.iconFile: /usr/share/icons/Numix-Circle/scalable/apps/terminal.svg
+!URxvt*font: xft:Source Code Pro:regular:size=6
+!URxvt*font: xft:Inconsolata for Powerline:regular:size=13
+URxvt*font: xft:Ubuntu Mono:regular:size=13
+URxvt.letterSpace: -1
+URxvt.iso14755: false
+URxvt.thickness: 1
+URxvt.scrollBar: off
+URxvt*scrollWithBuffer: true
+URxvt.borderLess: False
+URxvt.urgentOnBell: True
+URxvt.visualBell: False
+URxvt*saveLines: 5000
+urxvt*underlineURLs: true
+URxvt.perl-ext-common: default,matcher,clipboard
+URxvt.urlLauncher: x-www-browser
+URxvt.matcher.button: 1
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+
+
+!! Colours
+! special
+*.foreground:   #c5c8c6
+*.background:   #1d1f21
+*.cursorColor:  #c5c8c6
+
+! black
+*.color0:       #282a2e
+*.color8:       #373b41
+
+! red
+*.color1:       #a54242
+*.color9:       #cc6666
+
+! green
+*.color2:       #8c9440
+*.color10:      #b5bd68
+
+! yellow
+*.color3:       #de935f
+*.color11:      #f0c674
+
+! blue
+*.color4:       #5f819d
+*.color12:      #81a2be
+
+! magenta
+*.color5:       #85678f
+*.color13:      #b294bb
+
+! cyan
+*.color6:       #5e8d87
+*.color14:      #8abeb7
+
+! white
+*.color7:       #707880
+*.color15:      #c5c8c6
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.autohint: true
+Xft.hinting: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
+
