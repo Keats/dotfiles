@@ -7,12 +7,16 @@ plugins=(git sprunge archlinux virtualenvwrapper)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export LANG=en_GB.UTF-8
+
 EDITOR='vim'
+
+# For fig
+export DOCKER_HOST=tcp://localhost:4243
 
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
+# Remove backgrounds for the folders etc
 eval $(dircolors -b "$HOME/.dircolors")
