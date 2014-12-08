@@ -1,0 +1,54 @@
+[user]
+    name = Vincent Prouillet
+    email = vincent@wearewizards.io
+
+[color]
+    ui = true
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = red
+
+[core]
+    editor = vim
+    autocrlf = input
+    filemode = false
+    compression = 9
+
+[push]
+    default = simple
+
+[url "https://github.com/"]
+    insteadOf = gh:
+
+[url "https://bitbucket.org/"]
+    insteadOf = bb:
+
+[alias]
+    st = status
+    ci = commit
+    cm = commit -m
+    co = checkout
+    a = add
+    amend = commit --amend
+    l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+    rhard = reset --hard
+    unstage = reset HEAD --
+    unpushed = log --stat @{u}..HEAD
+    gg = grep --break --heading -n
+    wdiff = diff -w --word-diff-regex=. --color-words -U0
+    subup = submodule update --init
+    tags = tag -l
+    brdel = branch -D
