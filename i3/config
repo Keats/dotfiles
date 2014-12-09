@@ -154,6 +154,5 @@ bar {
 }
 
 # Auto start stuff
-exec udiskie -2 
+exec udiskie -2
 exec nm-applet
-exec --no-startup-id xrdb -merge .Xresources
