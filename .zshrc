@@ -1,12 +1,12 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
-unset GREP_OPTIONS
 
 ZSH_THEME="avit"
 plugins=(git sprunge archlinux virtualenvwrapper)
 
+source $ZSH/oh-my-zsh.sh
+
+unset GREP_OPTIONS
 
 # User configuration
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
