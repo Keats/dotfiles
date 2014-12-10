@@ -1,4 +1,17 @@
-# Xresources
-xrdb ~/.Xresources
+#!/bin/sh
+#
+# ~/.xinitrc
+#
+# Executed by startx (run your window manager from here)
 
-exec i3
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+  for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi
+
+xrdb -merge ~/.Xresources
+
+exec startxfce4
+# exec i3
