@@ -10,7 +10,7 @@ sudo pacman -S i3 rxvt-unicode zsh xclip
 sudo pacman -S thunar thunar-volman udisks2 udiskie ntfs-3g
 
 # Misc
-sudo pacman -S dunst scrot feh evince conky redshift firefox dmenu
+sudo pacman -S dunst scrot feh evince conky redshift firefox dmenu xf86-input-synaptics
 
 # Wifi
 sudo pacman -S wpa_supplicant wireless_tools networkmanager network-manager-applet gnome-keyring gnome-icon-theme
