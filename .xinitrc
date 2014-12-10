@@ -13,5 +13,4 @@ fi
 
 xrdb -merge ~/.Xresources
 
-exec startxfce4
-# exec i3
+exec i3
