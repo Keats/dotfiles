@@ -4,7 +4,7 @@
 sudo pacman -S xorg-server xorg-xinit xorg-server-utils mesa
 
 # Tiling/Terminal stuff
-sudo pacman -S i3 rxvt-unicode zsh xclip
+sudo pacman -S i3 rxvt-unicode zsh xsel urxvt-perls
 
 # File manager/usb automount stuff
 sudo pacman -S thunar thunar-volman udisks2 udiskie ntfs-3g
