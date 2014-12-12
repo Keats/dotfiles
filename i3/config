@@ -174,7 +174,7 @@ bindsym $mod+Shift+Q mode "$mode_system"
 
 # Custom key bindings
 #bindsym $mod+Shift+l exec i3lock
-bindsym $mod+Shift+w exec google-chrome
+bindsym $mod+Shift+w exec google-chrome-stable
 bindsym $mod+Shift+f exec thunar
 
 # multimedia keys

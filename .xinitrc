@@ -24,4 +24,7 @@ dunst -config ~/.dunstrc &
 nm-applet &
 volumeicon &
 
+# Disable touchpad while typing
+syndaeamon -t -k -i 2 &
+
 exec i3

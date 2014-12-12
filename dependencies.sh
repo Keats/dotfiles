@@ -19,7 +19,11 @@ sudo pacman -S arand skype unclutter flashplugin dunst scrot feh evince conky re
 sudo pacman -S wpa_supplicant wireless_tools networkmanager network-manager-applet gnome-keyring gnome-icon-theme
 
 # Dev
-sudo pacman -S vim python-pip python-virtualenv python-virtualenvwrapper
+sudo pacman -S docker vim python-pip python2-pip python-virtualenv python-virtualenvwrapper
+sudo systemctl enable docker.service
+
+# Fig not working on python3 yet https://github.com/docker/fig/pull/440
+sudo pip2 install fig
 
 # Sound
 sudo pacman -S pulseaudio pulseaudio-alsa lib32-libpulse lib32-alsa-plugins pavucontrol volumeicon
