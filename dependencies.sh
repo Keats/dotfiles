@@ -26,6 +26,9 @@ sudo systemctl enable docker.service
 sudo pip2 install fig
 
 # Sound
-sudo pacman -S pulseaudio pulseaudio-alsa lib32-libpulse lib32-alsa-plugins pavucontrol volumeicon
+sudo pacman -S pulseaudio pulseaudio-alsa lib32-libpulse lib32-alsa-plugins pavucontrol volumeicon alsa-utils
+
+# And VMs stuff
+sudo pacman -S virtualbox qt4
 
 echo "Finished installing dependencies"
