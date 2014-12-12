@@ -1,18 +1,14 @@
-urxvt*termName:	rxvt
-URxvt*buffered: true
-URxvt*intensityStyles:    True
-URxvt.iconFile: /usr/share/icons/Numix-Circle/scalable/apps/terminal.svg
+!! Term config -------------------------------------------
 URxvt*font: xft:Ubuntu Mono for Powerline:regular:size=12
 URxvt.letterSpace: -1
+
+URxvt*buffered: true
 URxvt.iso14755: false
-URxvt.thickness: 1
 URxvt.scrollBar: off
 URxvt*scrollWithBuffer: true
-URxvt.borderLess: False
-URxvt.urgentOnBell: True
-URxvt.visualBell: False
 URxvt*saveLines: 5000
 urxvt*underlineURLs: true
+
 URxvt.perl-ext-common: default,matcher,clipboard
 URxvt.urlLauncher: google-chrome
 URxvt.matcher.button: 1
@@ -21,7 +17,17 @@ URxvt.keysym.M-v: perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 
-!! Colours
+!! Fonts -------------------------------------------------
+Xft.dpi: 96
+Xft.antialias: true
+Xft.autohint: true
+Xft.hinting: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
+
+
+!! Colours ------------------------------------------------
 ! special
 *.foreground:   #c5c8c6
 *.background:   #1d1f21
@@ -58,12 +64,3 @@ URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 ! white
 *.color7:       #707880
 *.color15:      #c5c8c6
-
-Xft.dpi: 96
-Xft.antialias: true
-Xft.autohint: true
-Xft.hinting: true
-Xft.hintstyle: hintfull
-Xft.lcdfilter: lcddefault
-Xft.rgba: rgb
-
