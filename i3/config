@@ -9,9 +9,9 @@ set $blue #005588
 set $gray1 #484848
 set $gray2 #333333
 
-client.focused            $gray1   $gray1   #FFFFFF   #333333
-client.focused_inactive   $gray2   $gray2   #FFFFFF   #000000
-client.unfocused          $gray2   $gray2   #FFFFFF   #000000
+client.focused #cf6a4c #cf6a4c #333333
+client.focused_inactive #1a1a1a #1a1a1a #cccccc
+client.unfocused #1a1a1a #1a1a1a #cccccc
 
 # Redoing the currend workspace command (ie mod+2) sends you back
 # to the workspace you were on before
@@ -192,10 +192,12 @@ bindsym XF86MonBrightnessDown exec "xbacklight -10"
 bar {
         position top
         status_command ~/.i3/conky-i3bar
-        colors {
-                statusline #AAAAAA
-                background #333333
-                focused_workspace $gray2 $gray2 #FFFFFF
-                inactive_workspace $gray1 $gray1 #AAAAAA
-        }
+ colors {
+#border backgr text
+background #333333
+statusline #b3b3b3
+active_workspace #333333 #333333 #ffffff
+focused_workspace #333333 #333333 #ffffff
+inactive_workspace #333333 #333333 #b3b3b3
+}
 }

@@ -20,7 +20,8 @@ udiskie -2 &
 # Notifications
 dunst -config ~/.dunstrc &
 
-# Tray icon
+# Tray icons
 nm-applet &
+volumeicon &
 
 exec i3

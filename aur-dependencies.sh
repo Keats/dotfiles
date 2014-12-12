@@ -1,1 +1,1 @@
-yaourt -S numix-circle-icon-theme-git ttf-font-awesome google-chrome ttf-powerline-fonts-git
+yaourt -S numix-circle-icon-theme-git ttf-font-awesome google-chrome ttf-powerline-fonts-git tamzen-font-git
