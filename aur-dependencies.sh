@@ -1,0 +1,1 @@
+yaourt -S numix-circle-icon-theme-git ttf-font-awesome
