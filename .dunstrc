@@ -1,68 +1,47 @@
 [global]
-    font = Terminus 9
-
+    font = "TamzenForPowerline 17"
     allow_markup = yes
-
-    format = "<b>%s</b>\n%b"
+    format = "<b>%s %p</b>\n%b"
     sort = yes
-    indicate_hidden = yes
-    alignment = left
-
-    bounce_freq = 0
+    indicate_hidden = true
+    # geometry = "x5"
+    idle_threshold = 0
+    geometry = "300x5-0+25"
+    alignment = center
     show_age_threshold = 60
-    word_wrap = yes
-    ignore_newline = no
-
-    # geometry [{width}]x{height}][+/-{x}+/-{y}]
-    geometry = "0-10+10"
-    shrink = no
-
-    transparency = 0
-    idle_threshold = 120
-    monitor = 0
-
-    follow = none
     sticky_history = yes
-    history_length = 20
-    show_indicators = yes
-    line_height = 0
-    separator_height = 1
-    padding = 8
-    horizontal_padding = 8
+    follow = mouse
+    word_wrap = yes
+    separator_height = 2
+    padding = 10
+    horizontal_padding = 10
     separator_color = frame
+    startup_notification = true
+    dmenu = "/usr/bin/dmenu -p dunst: -nb #FFFFFF -nf #000000 -sb #94DBFF -sf #000000"
+    browser = google-chrome-stable
 
-    startup_notification = false
-
-    dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/firefox -new-tab
 
 [frame]
-    width = 1
-    color = "6092BE"
-    #color = "#6C6C6C"
+    width = 3
+    color = "#000000"
 
 [shortcuts]
-    #close = mod4+x
-    #close_all = mod4+ctrl+x
-    #history = mod4+grave
-    #context = ctrl+shift+period
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    #history = ctrl+grave
+    context = ctrl+shift+period
 
 [urgency_low]
-    background = "#6092BE"
-    foreground = "#FFFFFF"
-    #background = "#222222"
-    #foreground = "#888888"
-    timeout = 10
+    background = "#d9edf7"
+    foreground = "#31708f"
+    timeout = 30
 
 [urgency_normal]
-    background = "#6092BE"
-    foreground = "#FFFFFF"
-    #background = "#222222"
-    #foreground = "#888888"
-    timeout = 20
+    background = "#8a6d3b"
+    foreground = "#fcf8e3"
+    timeout = 45
 
 [urgency_critical]
-    background = "#801515"
-    foreground = "#D46A6A"
-    #background = "#900000"
-    #foreground =
+    background = "#f2dede"
+    foreground = "#a94442"
+    timeout = 0
