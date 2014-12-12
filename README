@@ -1,10 +1,5 @@
 Install oh-my-zsh
 
-Add infinality-bundle to pacman.conf: https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
-
-pacman-key --init
-sudo pacman-key -r 962DDE58
-sudo pacman-key -f 962DDE58
-sudo pacman-key --lsign-key 962DDE58
- 
- and the bundle-font one
+Steam:
+enable https://wiki.archlinux.org/index.php/Multilib
+and sudo pacman -S steam

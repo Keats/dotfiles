@@ -6,4 +6,21 @@
 
 xrdb ~/.Xresources
 
+start-pulseaudio-x11
+
+# Hide cursor when not used
+unclutter -grab -root &
+
+# london
+redshift  -l 51.5:0 &
+
+# Auto-mounting
+udiskie -2 &
+
+# Notifications
+dunst -config ~/.dunstrc &
+
+# Tray icon
+nm-applet &
+
 exec i3

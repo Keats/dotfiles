@@ -2,9 +2,7 @@ urxvt*termName:	rxvt
 URxvt*buffered: true
 URxvt*intensityStyles:    True
 URxvt.iconFile: /usr/share/icons/Numix-Circle/scalable/apps/terminal.svg
-!URxvt*font: xft:Source Code Pro:regular:size=6
-!URxvt*font: xft:Inconsolata for Powerline:regular:size=13
-URxvt*font: xft:Ubuntu Mono:regular:size=13
+URxvt*font: xft:Ubuntu Mono for Powerline:regular:size=12
 URxvt.letterSpace: -1
 URxvt.iso14755: false
 URxvt.thickness: 1
@@ -16,7 +14,7 @@ URxvt.visualBell: False
 URxvt*saveLines: 5000
 urxvt*underlineURLs: true
 URxvt.perl-ext-common: default,matcher,clipboard
-URxvt.urlLauncher: x-www-browser
+URxvt.urlLauncher: google-chrome
 URxvt.matcher.button: 1
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
