@@ -22,3 +22,5 @@ source /usr/bin/virtualenvwrapper.sh
 
 # Remove backgrounds for the folders etc
 eval $(dircolors -b "$HOME/.dircolors")
+
+alias subl='subl3'

@@ -81,13 +81,14 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+
 # assign workspace variables
-set $WS1 >>web
-set $WS2 >>code
-set $WS3 >>chat
-set $WS4 >>media
-set $WS5 >>games
-set $WS6 6
+set $WS1 1 
+set $WS2 2 
+set $WS3 3 
+set $WS4 4 
+set $WS5 5 
+set $WS6 6 
 set $WS7 7
 set $WS8 8
 set $WS9 9
@@ -118,9 +119,17 @@ bindsym $mod+Shift+9 move container to workspace $WS9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # floating
-for_window [window_role="pop-up"] floating enable
+for_window [window_role="pop-up"] floating enable,move absolute center
 for_window [window_role="task_dialog"] floating enable
+for_window [class="Thunar|skype|lxappearance|Arandr|Pavucontrol|Transmission-gtk"] floating enable
+for_window [title="File Operation Progress" class="Thunar"] floating enable
 
+# assigning some apps to specific workspace
+assign [instance="transmission-gtk"] $WS1
+assign [class="pycharm"] $WS2
+assign [class="Skype"] $WS3
+assign [class="VirtualBox"] $WS4
+assign [class="Steam"] $WS5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

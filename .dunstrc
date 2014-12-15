@@ -5,11 +5,11 @@
     sort = yes
     indicate_hidden = true
     # geometry = "x5"
-    idle_threshold = 0
+    idle_threshold = no
     geometry = "300x5-0+25"
     alignment = center
     show_age_threshold = 60
-    sticky_history = yes
+    sticky_history = no
     follow = mouse
     word_wrap = yes
     separator_height = 2
@@ -44,4 +44,4 @@
 [urgency_critical]
     background = "#f2dede"
     foreground = "#a94442"
-    timeout = 0
+    timeout = 2
