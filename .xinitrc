@@ -28,4 +28,11 @@ volumeicon &
 syndaeamon -t -k -i 2 &
 setxkbmap gb
 
+skype &
+
+# Japanese keyboard
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
 exec i3

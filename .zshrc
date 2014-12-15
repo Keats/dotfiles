@@ -24,3 +24,4 @@ source /usr/bin/virtualenvwrapper.sh
 eval $(dircolors -b "$HOME/.dircolors")
 
 alias subl='subl3'
+alias charm='sh /home/vincent/Apps/pycharm/bin/pycharm.sh'

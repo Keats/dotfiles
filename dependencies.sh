@@ -10,10 +10,10 @@ sudo pacman -S i3 rxvt-unicode zsh xsel urxvt-perls conky
 sudo pacman -S thunar thunar-volman udisks2 udiskie ntfs-3g
 
 # Fonts
-sudo pacman -S ttf-liberation ttf-ubuntu-font-family ttf-inconsolata adobe-source-code-pro-fonts terminus-font adobe-source-sans-pro-fonts adobe-source-han-sans-jp-fonts ttf-droid
+sudo pacman -S otf-ipafont ttf-liberation ttf-ubuntu-font-family ttf-inconsolata adobe-source-code-pro-fonts terminus-font adobe-source-sans-pro-fonts adobe-source-han-sans-jp-fonts ttf-droid
 
 # Misc
-sudo pacman -S unzip wget openssh tar transmission-gtk arandr unclutter 
+sudo pacman -S fcitx-mozc fcitx-configtool unzip wget openssh tar transmission-gtk arandr unclutter 
 flashplugin dunst scrot feh evince conky redshift firefox dmenu xf86-input-synaptics numix-themes lxappearance
 
 # Wifi
