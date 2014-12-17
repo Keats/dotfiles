@@ -1,1 +1,1 @@
-yaourt -S numix-circle-icon-theme-git ttf-font-awesome google-chrome ttf-powerline-fonts-git tamzen-font-git sublime-text-dev phototonic
+yaourt -S spotify numix-circle-icon-theme-git ttf-font-awesome google-chrome ttf-powerline-fonts-git tamzen-font-git sublime-text-dev phototonic

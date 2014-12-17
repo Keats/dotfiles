@@ -129,6 +129,7 @@ assign [class="pycharm"] $WS2
 assign [class="Skype"] $WS3
 assign [class="VirtualBox"] $WS4
 assign [class="Steam"] $WS5
+assign [class="Spotify"] $WS6
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
