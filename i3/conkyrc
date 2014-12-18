@@ -13,6 +13,6 @@ if_up_strictness address
 TEXT
 
 [
-  {"full_text": "  [$battery_percent%] ","color":"\#dddddd"},
+  {"full_text": "  [$battery_percent% - ${battery_percent BAT1}%] ","color":"\#dddddd"},
   {"full_text": "  ${time %a %d %b} ${time %H:%M} ", "color":"\#dddddd"}
 ],
