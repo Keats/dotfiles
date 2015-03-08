@@ -67,7 +67,7 @@ pacman -s --needed infinality-bundle adobe-source-han-sans-otc-fonts ttf-dejavu 
                    freetype2-ubuntu
 
 echo "Installing file manager stuff"
-pacman -S --needed thunar thunar-volman udisks2 udiskie ntfs-3g gvfs-mtp
+pacman -S --needed thunar thunar-volman udisks2 udiskie ntfs-3g gvfs-mtp android-udev
 
 
 # yaourt stuff: lighthouse-git
