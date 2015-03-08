@@ -15,13 +15,13 @@ dirmngr </dev/null
 # Enable multilib repo
 sed -i "s/#\[multilib]\n#Include = \/etc\/pacman.d\/mirrorlist/[multilib]\nInclude = \/etc\/pacman.d\/mirrorlist/g" /etc/pacman.conf
 # Add yaourt server
-if [ ! grep 'archlinuxfr' /etc/pacman.conf] then
+if [ ! grep 'archlinuxfr' /etc/pacman.conf ]; then
 	echo -e "\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
 fi
 # Add pretty font rendering
 pacman-key -r 962DDE58
 pacman-key --lsign-key 962DDE58
-if [ ! grep 'infinality-bundle' /etc/pacman.conf] then
+if [ ! grep 'infinality-bundle' /etc/pacman.conf ]; then
 	echo -e "\n[infinality-bundle]\nServer = http://bohoomil.com/repo/\$arch" >> /etc/pacman.conf
 	echo -e "\n[infinality-bundle-multilib]\nServer = http://bohoomil.com/repo/multilib/\$arch" >> /etc/pacman.conf
 fi
