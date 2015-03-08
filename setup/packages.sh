@@ -13,14 +13,18 @@ pacman-key --populate archlinux
 dirmngr </dev/null
 
 # Enable multilib repo
-sed -i -e "s/#\[multilib]/[multilib]/g" -e "s/#Include = \/etc\/pacman.d\/mirrorlist/Include = \/etc\/pacman.d\/mirrorlist/g" /etc/pacman.conf
+sed -i "s/#\[multilib]\n#Include = \/etc\/pacman.d\/mirrorlist/[multilib]\nInclude = \/etc\/pacman.d\/mirrorlist/g" /etc/pacman.conf
 # Add yaourt server
-echo -e "\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
+if [ ! grep 'archlinuxfr' /etc/pacman.conf] then
+	echo -e "\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
+fi
 # Add pretty font rendering
 pacman-key -r 962DDE58
 pacman-key --lsign-key 962DDE58
-echo -e "\n[infinality-bundle]\nServer = http://bohoomil.com/repo/\$arch" >> /etc/pacman.conf
-echo -e "\n[infinality-bundle-multilib]\nServer = http://bohoomil.com/repo/multilib/\$arch" >> /etc/pacman.conf
+if [ ! grep 'infinality-bundle' /etc/pacman.conf] then
+	echo -e "\n[infinality-bundle]\nServer = http://bohoomil.com/repo/\$arch" >> /etc/pacman.conf
+	echo -e "\n[infinality-bundle-multilib]\nServer = http://bohoomil.com/repo/multilib/\$arch" >> /etc/pacman.conf
+fi
 
 pacman -Syu
 
@@ -34,7 +38,7 @@ echo "Installing common stuff"
 pacman -S --needed vim openssh zsh acpi tlp unzip tar wget scrot redshift firefox \
                    numix-themes unclutter fcitx-mozc fcitx-configtool lxappearance \
                    gnome-keyring gnome-icon-theme p7zip htop avahi libreoffice yaourt flashplugin \
-                   transmission-gtk
+                   transmission-gtk reflector
 
 # TLP optimizes battery life
 systemctl enable tlp.service
