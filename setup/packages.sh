@@ -9,6 +9,8 @@ pacman -Syu
 
 pacman-key --init
 pacman-key --populate archlinux
+# https://bbs.archlinux.org/viewtopic.php?id=190380
+dirmngr </dev/null
 
 # Enable multilib repo
 sed -i -e "s/#\[multilib]/[multilib]/g" -e "s/#Include = \/etc\/pacman.d\/mirrorlist/Include = \/etc\/pacman.d\/mirrorlist/g" /etc/pacman.conf

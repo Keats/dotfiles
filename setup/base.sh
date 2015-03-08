@@ -58,7 +58,6 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 
 echo "Everything below is done chrooting"
 # Start configuring the base system
-#arch-chroot /mnt /bin/bash
 
 echo "Setting up GB related stuff (locale, keyboard, tz)"
 # Setting up GB locale
@@ -93,9 +92,6 @@ fi
 echo "Editing initial ramdisk"
 cp /mnt/etc/mkinitcpio.conf /mnt/etc/mkinitcpio.conf.bak
 sed -i "s/filesystems keyboard/encrypt lvm2 keymap filesystems keyboard/" /mnt/etc/mkinitcpio.conf
-# Workaround for https://bbs.archlinux.org/viewtopic.php?id=149040 can probably be removed
-# TODO check if really need on a real machine
-#pacman -S linux
 arch-chroot /mnt mkinitcpio -p linux
 
 echo "Change root password"
