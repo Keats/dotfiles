@@ -41,7 +41,7 @@ echo "Installing common stuff"
 pacman -S --needed vim openssh zsh acpi tlp unzip tar wget scrot redshift firefox \
                    numix-themes unclutter fcitx-mozc fcitx-configtool lxappearance \
                    gnome-keyring gnome-icon-theme p7zip htop avahi libreoffice yaourt flashplugin \
-                   transmission-gtk reflector
+                   transmission-gtk reflector calibre anki mpv steam
 
 # TLP optimizes battery life
 systemctl enable tlp.service
@@ -70,7 +70,11 @@ echo "Installing file manager stuff"
 pacman -S --needed thunar thunar-volman udisks2 udiskie ntfs-3g gvfs-mtp android-udev
 
 
-# yaourt stuff: lighthouse-git
+echo "And now install stuff from AUR"
+yaourt -S lighthouse-git numix-circle-icon-theme-git ttf-powerline-fonts-git tamzen-font-git sublime-text-dev \
+          google-chrome dropbox compton spotify ttf-fantasque-sans pycharm-professional \
+          bspwm-git sxhkd-git bar-aint-recursive ttf-ms-fonts jmtpfs jdk thunar-dropbox \
+          numix-icon-theme-git trimage-git oh-my-zsh-git android-studio
 
 
 # echo "Creating user if it doesn't exist"
