@@ -107,11 +107,11 @@ sed -i "s/APPEND root=[a-z\/0-9]*/APPEND cryptdevice=\/dev\/sda2:${VOLUME_GROUP_
 
 echo "Creating user if it doesn't exist"
 if ! id -u $USER > /dev/null 2>&1; then
-    useradd -m -G wheel -s /bin/zsh $USER
-    passwd $USER
+    arch-chroot /mnt useradd -m -G wheel -s /bin/zsh $USER
+    arch-chroot /mnt passwd $USER
     # Adding wheel group to sudoers
-    cp -v /etc/sudoers /etc/sudoers.bak
-    sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
+    cp /mnt/etc/sudoers /mnt/etc/sudoers.bak
+    sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /mnt/etc/sudoers
 fi
 
 echo "Base setup done, type reboot if you're happy"
