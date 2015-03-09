@@ -6,6 +6,7 @@ LOCALE=en_GB.UTF-8
 VOLUME_GROUP_NAME=crypt
 ROOT_VOLUME_SIZE=20G
 USER=vincent
+REPO=http://github.com/Keats/dotfiles
 
 
 echo "Setting up keyboard"
@@ -101,17 +102,15 @@ arch-chroot /mnt passwd
 
 echo "Bootloader time"
 # Need to install gdisk as well: https://bbs.archlinux.org/viewtopic.php?pid=1199850#p1199850
-arch-chroot /mnt pacman -S syslinux gdisk
+# Installing git and zsh for the user creation
+arch-chroot /mnt pacman -S syslinux gdisk zsh git
 arch-chroot /mnt syslinux-install_update -iam
 sed -i "s/APPEND root=[a-z\/0-9]*/APPEND cryptdevice=\/dev\/sda2:${VOLUME_GROUP_NAME} root=\/dev\/mapper\/${VOLUME_GROUP_NAME}-rootvol/g" /mnt/boot/syslinux/syslinux.cfg
 
-echo "Creating user if it doesn't exist"
-if ! id -u $USER > /dev/null 2>&1; then
-    arch-chroot /mnt useradd -m -G wheel -s /bin/zsh $USER
-    arch-chroot /mnt passwd $USER
-    # Adding wheel group to sudoers
-    cp /mnt/etc/sudoers /mnt/etc/sudoers.bak
-    sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /mnt/etc/sudoers
-fi
+echo "Creating user"
+arch-chroot /mnt useradd -m -G wheel -s /bin/zsh $USER
+arch-chroot /mnt passwd $USER
+sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /mnt/etc/sudoers
+git clone $REPO /home/vincent/dotfiles
 
 echo "Base setup done, type reboot if you're happy"

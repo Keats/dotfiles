@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# If you are running on wired, you will need to run systemctl enable dhcpcd@interface_name.service
+# If you are running on wired, you will need to run systemctl enable/start dhcpcd@interface_name.service
 # Use wifi-menu if no wifi
 sudo pacman -Syu
 
@@ -9,8 +9,8 @@ sudo pacman-key --populate archlinux
 # https://bbs.archlinux.org/viewtopic.php?id=190380
 dirmngr </dev/null
 
-# Enable multilib repo
-sudo sed -i "s/#\[multilib]\n#Include = \/etc\/pacman.d\/mirrorlist/[multilib]\nInclude = \/etc\/pacman.d\/mirrorlist/g" /etc/pacman.conf
+# Enable multilib repo, this is witchery
+sudo sed -i ':begin;$!N;s/#\[multilib\]\n#Include/\[multilib\]\nInclude/;tbegin;P;D' /etc/pacman.conf
 # Add yaourt server
 grep -q 'archlinuxfr' /etc/pacman.conf 
 if [ $? -ne 0 ]; then
