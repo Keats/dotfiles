@@ -38,7 +38,7 @@ echo "Installing common stuff"
 sudo pacman -S --needed vim openssh zsh acpi tlp unzip tar wget scrot redshift firefox \
                    numix-themes unclutter fcitx-mozc fcitx-configtool fcitx-ui-light lxappearance \
                    gnome-keyring gnome-icon-theme p7zip htop avahi libreoffice yaourt flashplugin \
-                   transmission-gtk reflector calibre anki mpv steam conky dzen2
+                   transmission-gtk reflector calibre anki mpv steam conky dzen2 feh
 
 # TLP optimizes battery life
 sudo systemctl enable tlp.service
