@@ -62,7 +62,7 @@ echo "Installing terminal"
 pacman -S --needed rxvt-unicode xsel urxvt-perls
 
 echo "Installing font stuff"
-pacman -s --needed infinality-bundle adobe-source-han-sans-otc-fonts ttf-dejavu ttf-liberation terminus-font \
+pacman -S --needed infinality-bundle adobe-source-han-sans-otc-fonts ttf-dejavu ttf-liberation terminus-font \
                    adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts \
                    freetype2-ubuntu
 
