@@ -20,8 +20,6 @@ export DOCKER_HOST=tcp://localhost:4243
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
-export CHROME_BIN=google-chrome-stable
-export ANDROID_HOME=~/Android/Sdk
 # Remove backgrounds for the folders etc
 eval $(dircolors -b "$HOME/.dircolors")
 
