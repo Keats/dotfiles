@@ -17,7 +17,7 @@ sed -i "s/#\[multilib]\n#Include = \/etc\/pacman.d\/mirrorlist/[multilib]\nInclu
 # Add yaourt server
 grep -q 'archlinuxfr' /etc/pacman.conf 
 if [ $? -ne 0 ]; then
-	echo -e "\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
+    echo -e "\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
 fi
 
 # Add pretty font rendering with infinality
@@ -25,16 +25,16 @@ pacman-key -r 962DDE58
 pacman-key --lsign-key 962DDE58
 grep -q 'infinality-bundle' /etc/pacman.conf 
 if [ $? -ne 0 ]; then
-	echo -e "\n[infinality-bundle]\nServer = http://bohoomil.com/repo/\$arch" >> /etc/pacman.conf
-	echo -e "\n[infinality-bundle-multilib]\nServer = http://bohoomil.com/repo/multilib/\$arch" >> /etc/pacman.conf
+    echo -e "\n[infinality-bundle]\nServer = http://bohoomil.com/repo/\$arch" >> /etc/pacman.conf
+    echo -e "\n[infinality-bundle-multilib]\nServer = http://bohoomil.com/repo/multilib/\$arch" >> /etc/pacman.conf
 fi
 
 pacman -Syu
 
 echo "Installing base packages (xorg, video, sound, touchpad etc)"
 pacman -S --needed xorg-server xorg-xinit xorg-server-utils xorg-xkill mesa xf86-video-intel \
-		           xf86-input-synaptics xf86-input-mouse xf86-input-keyboard \
-		           alsa-utils alsa-plugins pulseaudio pulseaudio-alsa
+                   xf86-input-synaptics xf86-input-mouse xf86-input-keyboard \
+                   alsa-utils alsa-plugins pulseaudio pulseaudio-alsa
 
 
 echo "Installing common stuff"
@@ -70,18 +70,20 @@ echo "Installing file manager stuff"
 pacman -S --needed thunar thunar-volman udisks2 udiskie ntfs-3g gvfs-mtp android-udev
 
 
+echo "Creating user if it doesn't exist"
+if ! id -u $USER > /dev/null 2>&1; then
+    useradd -m -G wheel,vboxusers -s /bin/zsh $USER
+    passwrd $USER
+    # Adding wheel group to sudoers
+    cp -v /etc/sudoers /etc/sudoers.bak
+    sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
+fi
+
+su - $USER
+
 echo "And now install stuff from AUR"
-yaourt -S lighthouse-git numix-circle-icon-theme-git ttf-powerline-fonts-git tamzen-font-git sublime-text-dev \
-          google-chrome dropbox compton spotify ttf-fantasque-sans pycharm-professional \
-          bspwm-git sxhkd-git bar-aint-recursive ttf-ms-fonts jmtpfs jdk thunar-dropbox \
-          numix-icon-theme-git trimage-git oh-my-zsh-git android-studio
+yaourt -S  --noconfirm lighthouse-git numix-circle-icon-theme-git ttf-powerline-fonts-git tamzen-font-git sublime-text-dev \
+                       google-chrome dropbox compton spotify ttf-fantasque-sans pycharm-professional \
+                       bspwm-git sxhkd-git bar-aint-recursive ttf-ms-fonts jmtpfs jdk thunar-dropbox \
+                       numix-icon-theme-git trimage-git oh-my-zsh-git android-studio
 
-
-# echo "Creating user if it doesn't exist"
-# if ! id -u $USER > /dev/null 2>&1; then
-# 	useradd -m -G wheel,vboxusers -s /bin/zsh $USER
-# 	passwrd $USER
-# 	# Adding wheel group to sudoers
-# 	cp -v /etc/sudoers /etc/sudoers.bak
-# 	sed -i '/%wheel ALL=(ALL) ALL/s/^#//' /etc/sudoers
-# fi
