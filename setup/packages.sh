@@ -29,7 +29,7 @@ fi
 sudo pacman -Syu
 
 echo "Installing base packages (xorg, video, sound, touchpad etc)"
-sudo pacman -S --needed xorg-server xorg-xinit xorg-server-utils xorg-xkill mesa xf86-video-intel \
+sudo pacman -S --needed xorg-server xorg-xinit xorg-server-utils xterm xorg-xkill mesa xf86-video-intel \
                    xf86-input-synaptics xf86-input-mouse xf86-input-keyboard \
                    alsa-utils alsa-plugins pulseaudio pulseaudio-alsa
 
@@ -71,5 +71,5 @@ echo "And now install stuff from AUR"
 yaourt -S --noconfirm lighthouse-git numix-circle-icon-theme-git powerline-fonts-git tamzen-font-git sublime-text-dev \
                       google-chrome dropbox compton spotify ttf-fantasque-sans pycharm-professional \
                       bspwm-git sxhkd-git bar-aint-recursive ttf-ms-fonts jmtpfs jdk thunar-dropbox \
-                      numix-icon-theme-git trimage-git oh-my-zsh-git bdf-tewi-git android-studio
+                      numix-icon-theme-git trimage-git oh-my-zsh-git bdf-tewi-git
 
