@@ -38,7 +38,7 @@ echo "Installing common stuff"
 sudo pacman -S --needed vim openssh zsh acpi tlp unzip tar wget scrot redshift firefox \
                    numix-themes unclutter fcitx-mozc fcitx-configtool lxappearance \
                    gnome-keyring gnome-icon-theme p7zip htop avahi libreoffice yaourt flashplugin \
-                   transmission-gtk reflector calibre anki mpv steam
+                   transmission-gtk reflector calibre anki mpv steam conky
 
 # TLP optimizes battery life
 sudo systemctl enable tlp.service
@@ -68,8 +68,8 @@ sudo pacman -S --needed thunar thunar-volman udisks2 udiskie ntfs-3g gvfs-mtp an
 
 
 echo "And now install stuff from AUR"
-yaourt -S  --noconfirm lighthouse-git numix-circle-icon-theme-git ttf-powerline-fonts-git tamzen-font-git sublime-text-dev \
-                       google-chrome dropbox compton spotify ttf-fantasque-sans pycharm-professional \
-                       bspwm-git sxhkd-git bar-aint-recursive ttf-ms-fonts jmtpfs jdk thunar-dropbox \
-                       numix-icon-theme-git trimage-git oh-my-zsh-git android-studio
+yaourt -S --noconfirm lighthouse-git numix-circle-icon-theme-git ttf-powerline-fonts-git tamzen-font-git sublime-text-dev \
+                      google-chrome dropbox compton spotify ttf-fantasque-sans pycharm-professional \
+                      bspwm-git sxhkd-git bar-aint-recursive ttf-ms-fonts jmtpfs jdk thunar-dropbox \
+                      numix-icon-theme-git trimage-git oh-my-zsh-git android-studio
 
