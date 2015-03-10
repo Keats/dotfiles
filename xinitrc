@@ -8,7 +8,7 @@ xrdb ~/.Xresources
 start-pulseaudio-x11
 
 # Hide cursor when not used
-unclutter -grab -root &
+unclutter -grab -noevents -root &
 
 # london
 redshift  -l 51.5:0 &
@@ -32,6 +32,8 @@ export XMODIFIERS=@im=fcitx
 fcitx &
 
 eval "$(ssh-agent)"
+
+compton &
 
 sxhkd &
 exec bspwm

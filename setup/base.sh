@@ -67,7 +67,7 @@ echo "Setting up GB related stuff (locale, keyboard, tz)"
 sed -i s/en_US.UTF-8/#en_US.UTF-8/ /mnt/etc/locale.gen
 sed -i s/#$LOCALE/$LOCALE/ /mnt/etc/locale.gen
 arch-chroot /mnt locale-gen
-echo LANG=LOCALE> /mnt/etc/locale.conf
+echo LANG=$LOCALE> /mnt/etc/locale.conf
 
 # Making sure uk keyboard is persisted
 echo KEYMAP=$KB_LAYOUT > /mnt/etc/vconsole.conf
