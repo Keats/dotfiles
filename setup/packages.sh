@@ -50,6 +50,7 @@ sudo systemctl enable avahi-dnsconfd
 echo "Installing dev stuff"
 sudo pacman -S --needed git virtualbox docker qt4 python-pip python2-pip python-virtualenv python-virtualenvwrapper
 sudo systemctl enable docker.service
+sudo sed -i "s/ExecStart=\/usr\/bin\/docker -d -H fd:\/\//ExecStart=\/usr\/bin\/docker -d -H tcp:\/\/127.0.0.1:4243 -H unix:\/\/\/var\/run\/docker.sock/" /usr/lib/systemd/system/docker.service
 
 echo "Installing printer stuff"
 sudo pacman -S --needed cups cups-filters ghostscript gsfonts gutenprint system-config-printer
