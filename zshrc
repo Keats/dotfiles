@@ -20,8 +20,5 @@ export ANDROID_HOME=~/Android/Sdk
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
-# Remove backgrounds for the folders etc
-eval $(dircolors -b "$HOME/.dircolors")
-
 alias subl='subl3'
 alias charm='sh /home/vincent/Apps/pycharm/bin/pycharm.sh'
