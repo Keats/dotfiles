@@ -72,7 +72,7 @@ echo "And now install stuff from AUR"
 yaourt -S --noconfirm google-chrome dropbox spotify pycharm-professional jdk
 yaourt -S --noconfirm lighthouse-git numix-circle-icon-theme-git powerline-fonts-git tamzen-font-git sublime-text-dev \
                       compton  ttf-fantasque-sans bspwm-git sxhkd-git bar-aint-recursive \
-                      ttf-ms-fonts jmtpfs jdk thunar-dropbox numix-icon-theme-git trimage-git \
+                      ttf-ms-fonts jmtpfs thunar-dropbox numix-icon-theme-git trimage-git \
                       oh-my-zsh-git bdf-tewi-git gohufont
 
 
