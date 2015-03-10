@@ -18,6 +18,7 @@ udiskie -2 &
 
 # Disable touchpad while typing
 syndaeamon -t -k -i 2 &
+setxkbmap gb
 
 skype &
 
