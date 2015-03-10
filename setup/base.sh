@@ -111,6 +111,6 @@ echo "Creating user"
 arch-chroot /mnt useradd -m -G wheel -s /bin/zsh $USER
 arch-chroot /mnt passwd $USER
 sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /mnt/etc/sudoers
-git clone $REPO /home/vincent/dotfiles
+arch-chroot /mnt git clone $REPO /mnt/home/vincent/dotfiles
 
 echo "Base setup done, type reboot if you're happy"
