@@ -16,7 +16,7 @@ EDITOR='vim'
 
 # For fig
 export DOCKER_HOST=tcp://localhost:4243
-
+export ANDROID_HOME=~/Android/Sdk
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
