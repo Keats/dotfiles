@@ -22,6 +22,9 @@ setxkbmap gb
 
 skype &
 
+# Not a horrible looking cursor
+xsetroot -cursor_name left_ptr &
+
 # Japanese keyboard
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
