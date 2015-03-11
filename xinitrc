@@ -25,8 +25,11 @@ skype &
 xset +fp /usr/share/fonts/local
 xset fp rehash
 
+feh --bg-scale dotfiles/wallpaper.jpg
+
 # Not a horrible looking cursor
 xsetroot -cursor_name left_ptr &
+xset b off
 
 # Japanese keyboard
 export GTK_IM_MODULE=fcitx

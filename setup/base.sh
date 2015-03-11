@@ -6,7 +6,7 @@ LOCALE=en_GB.UTF-8
 VOLUME_GROUP_NAME=crypt
 ROOT_VOLUME_SIZE=20G
 USER=vincent
-REPO=http://github.com/Keats/dotfiles
+REPO=git@github.com:Keats/dotfiles.git
 
 
 echo "Setting up keyboard"

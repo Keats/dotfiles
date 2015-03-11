@@ -9,7 +9,7 @@
 ! hard contrast: *background: #1d2021
 !*background: [90]#282828
 ! Adding some more contrast
-*background: [90]#1b1b1b
+*background: [80]#1b1b1b
 ! soft contrast: *background: #32302f
 *foreground: #ebdbb2
 ! Black + DarkGrey
