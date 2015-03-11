@@ -1,23 +1,26 @@
-!! Term config -------------------------------------------
+#include "/home/vincent/.colors/gruvbox-dark"
+
+
+! Term config -------------------------------------------
 ! Fonts
-!URxvt*font: xft:Ubuntu Mono for Powerline:regular:size=12
-!URxvt.font: xft:terminus powerline:pixelsize=11:antialias=false
-!URxvt.boldFont: xft:terminus powerline:bold:pixelsize=11:antialias=false
 !URxvt*font: xft:gohufont:size=14
-URxvt*font: xft:TamzenForPowerline:size=17
+!URxvt*font: xft:TamzenForPowerline:size=17
+URxvt*font: xft:Fantasque Sans Mono:size=11
+URxvt.letterSpace: -1
 
 ! Random stuff
 URxvt.termName: rxvt-unicode
 URxvt.depth: 32
-URxvt.borderless: 1
 URxvt*buffered: true
 URxvt.iso14755: false
 URxvt.scrollBar: off
 URxvt*scrollWithBuffer: true
 URxvt*saveLines: 5000
 urxvt*underlineURLs: true
-URxvt.urlLauncher: google-chrome
+URxvt.urlLauncher: firefox
 URxvt.matcher.button: 1
+! internalBorder is padding basically
+urxvt*internalBorder: 20
 
 ! Plugins
 URxvt.perl-ext-common: default,matcher,clipboard
@@ -34,42 +37,3 @@ Xft.hinting: true
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
-
-
-!! Colours ------------------------------------------------
-! special
-*.foreground:   #c5c8c6
-*.background:   #1d1f21
-*.cursorColor:  #c5c8c6
-
-! black
-*.color0:       #282a2e
-*.color8:       #373b41
-
-! red
-*.color1:       #a54242
-*.color9:       #cc6666
-
-! green
-*.color2:       #8c9440
-*.color10:      #b5bd68
-
-! yellow
-*.color3:       #de935f
-*.color11:      #f0c674
-
-! blue
-*.color4:       #5f819d
-*.color12:      #81a2be
-
-! magenta
-*.color5:       #85678f
-*.color13:      #b294bb
-
-! cyan
-*.color6:       #5e8d87
-*.color14:      #8abeb7
-
-! white
-*.color7:       #707880
-*.color15:      #c5c8c6
