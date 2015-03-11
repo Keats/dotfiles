@@ -1,5 +1,5 @@
-
 #!/usr/bin/bash
+
 USED_MEM=`free -m | grep Mem | awk '{print $3}'`
 TOTAL_MEM=`free -m | grep Mem | awk '{print $2}'`
 

@@ -24,12 +24,12 @@ get_battery() {
 
 	if [[ $STATUS = "Discharging" ]]; then
 		TIME=`acpi -b | awk '{print $5}'`
-		echo -e %{F$COLOUR_GRUV_BLUE}$ICON" "%{F$COLOUR}$PERCENTAGE"% (Dis.) - "$TIME%{F$COLOR_FOREGROUND}
+		echo -e %{F$COLOUR_GRUV_BLUE}$ICON" "%{F$COLOUR}$PERCENTAGE"% ("$STATUS") - "$TIME%{F$COLOR_FOREGROUND}
 	elif [[ $STATUS = "Unknown" ]]; then
-		echo -e %{F$COLOUR_GRUV_BLUE}$ICON" "%{F$COLOUR}$PERCENTAGE"% (Conn.)"%{F$COLOR_FOREGROUND}
+		echo -e %{F$COLOUR_GRUV_BLUE}$ICON" "%{F$COLOUR}$PERCENTAGE"%"%{F$COLOR_FOREGROUND}
 	else
 		echo -e %{F$COLOUR_GRUV_BLUE}$ICON" "%{F$COLOUR}$PERCENTAGE"% ("$STATUS")"%{F$COLOR_FOREGROUND}
 	fi
 }
 
-echo -e $(get_battery 0)  $(get_battery 0)
+echo -e $(get_battery 0)  $(get_battery 1)

@@ -27,8 +27,8 @@ while true ; do
 	RAM=$(~/.config/bspwm/panel/scripts/ram)
 	BATTERIES=$(~/.config/bspwm/panel/scripts/batteries)
 
-	echo "S" $WIFI "|" $RAM%% "|" $BATTERIES "|" $VOLUME%%  "|" $CLOCK > "$PANEL_FIFO" &
-	sleep 1s
+	echo "S" $WIFI "|" $RAM%% "|" $BATTERIES "|" $VOLUME%%  "|" $CLOCK " " > "$PANEL_FIFO" &
+	sleep 5s
 done &
 
 cat $PANEL_FIFO \

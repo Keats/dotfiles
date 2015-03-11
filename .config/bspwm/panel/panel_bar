@@ -1,36 +1,20 @@
 #! /bin/bash
-sep_m="%{B#FF292929}%{F#FF833228}  %{F-}%{B-}"
-sep_v="%{B#FF292929}%{F#FF596875}  %{F-}%{B-}"
-sep_vm="%{B#FF292929}%{F#FF596875}  %{F-}%{B-}"
-sep_d="%{B#FF292929}%{F#FF8C5b3E}  %{F-}%{B-}"
-sep_c="%{B#FF292929}%{F#FF917154}  %{F-}%{B-}"
-sep_md="%{B#FF292929}%{F#FF596875}  %{F-}%{B-}"
-sep_b="%{B#FF292929}%{F#FF833228}  %{F-}%{B-}"
 
 source $(dirname $0)/config
 num_mon=$(bspc query -M | wc -l)
-
-NORMIFS=$IFS
-FIELDIFS=':'
-PAD=' '
-LPAD=' '
 
 while read -r line ; do
     case $line in
         S*)
             # info
-            sys_infos="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line#?} %{B-}%{F-}"
+            sys_infos="${line#?}"
             ;;
         T*)
             # window title
-            title="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${line#?} %{B-}%{F-}"
+            title="${line#?}"
             ;;
         W*)
 			# bspwm internal state
-            # W=$(bspc query --desktop focused --windows | wc -l)
-            # G=$(echo "71 - ($W - 1) * 10" | bc)
-            # [[ $G -lt 1 ]] && G=1
-            # bspc config --desktop focused window_gap $G
 			wm_infos=""
 			IFS=':'
 			set -- ${line#?}
@@ -38,20 +22,6 @@ while read -r line ; do
 				item=$1
 				name=${item#?}
 				case $item in
-					M*)
-						# active monitor
-						if [ $num_mon -gt 1 ] ; then
-						wm_infos="${wm_infos}%{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG} ${name} %{B-}%{F-} %{A}"
-					fi
-					;;
-
-					m*)
-						# inactive monitor
-						if [ $num_mon -gt 1 ] ; then
-						wm_infos="${wm_infos}%{F$COLOR_INACTIVE_MONITOR_FG}%{B$COLOR_INACTIVE_MONITOR_BG} ${name} %{B-}%{F-} %{A}"
-					fi
-					;;
-
 					O*) 
 						# focused occupied desktop
 						wm_infos="${wm_infos}%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B$COLOR_FOCUSED_OCCUPIED_BG}%{U$COLOR_FOREGROUND}%{+u} ${name} %{-u}%{B-}%{F-}"
@@ -68,20 +38,17 @@ while read -r line ; do
 					;;
 
 					o*)
-
-					# occupied desktop
+						# occupied desktop
 						wm_infos="${wm_infos}%{F$COLOR_OCCUPIED_FG}%{B$COLOR_OCCUPIED_BG} ${name} %{B-}%{F-}"
 					;;
 
 					f*)
-
-					# free desktop
+						# free desktop
 						wm_infos="${wm_infos}%{F$COLOR_FREE_FG}%{B$COLOR_FREE_BG} ${name} %{B-}%{F-}"
 					;;
 
 					u*)
-
-					# urgent desktop
+						# urgent desktop
 						wm_infos="${wm_infos}%{F$COLOR_URGENT_FG}%{B$COLOR_URGENT_BG} ${name} %{B-}%{F-}"
 					;;
                 esac

@@ -3,7 +3,7 @@
 bspc monitor -d web dev skype games vm music misc
 
 # Visual options
-bspc config border_width        1
+bspc config border_width        2
 bspc config window_gap          2
 bspc config split_ratio         0.52
 bspc config borderless_monocle  true
@@ -22,11 +22,11 @@ bspc config urgent_border_color "#9f7155"
 bspc config focused_locked_border_color "#9a875f"
 
 # Rules
-bspc rule -a Skype pseudo_tiled=on desktop=^3
+bspc rule -a skype pseudo_tiled=on desktop=^3
 bspc rule -a Spotify pseudo_tiled=on
 bspc rule -a Transmission-gtk pseudo_tiled=on desktop=^7
-bspc rule -a Firefox desktop=^1
-bspc rule -a google-chrome desktop=^1
+bspc rule -a firefox desktop=^1
+bspc rule -a google-chrome-stable desktop=^1
 
 # Exec
 ~/.config/bspwm/panel/panel &
