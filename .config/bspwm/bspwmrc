@@ -29,3 +29,4 @@ bspc rule -a Firefox desktop=^1
 bspc rule -a google-chrome desktop=^1
 
 # Exec
+~/.config/bspwm/panel/panel &

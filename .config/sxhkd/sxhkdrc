@@ -5,25 +5,27 @@
 super + alt + Escape
 	bspc quit
 
-# close window
+# Close window
 super + shift + q
 	bspc window -c
 
-# kill window
+# Kill window
 super + shift + k
 	bspc window -k
 
+# Toggle layout between monocle and tiled
 super + t
 	bspc desktop -l next
 
-# balance tree
+# balance tree (in size)
 super + b
 	bspc desktop -B
 
-# set floating or full screen
+# toggle floating or full screen
 super + {s,f}
 	bspc window -t {floating,fullscreen}
 
+# Toggle last focused windows or workspace/desktop back-and-forth
 super + {grave,Tab}
 	bspc {window,desktop} -f last
 
@@ -31,63 +33,68 @@ super + {grave,Tab}
 super + apostrophe
 	bspc window -s last
 
-super + {o,i}
-	bspc control --record-history off; \
-	bspc window {older,newer} -f; \
-	bspc control --record-history on
-
-super + y
-	bspc window -w last.manual
+# Focus the given desktop or move a window to a given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,window -d} ^{1-9,10}
 
 # swap current window with the biggest on screen
 super + m
 	bspc window -s biggest
 
-super + {_,shift + }{h,j,k,l}
-	bspc window -{f,s} {left,down,up,right}
-
+# Focus next or prev window
 super + {_,shift + }c
 	bspc window -f {next,prev}
 
-super + {comma,period}
-	bspc desktop -C {backward,forward}
-
-super + bracket{left,right}
-	bspc desktop -f {prev,next}
-
-super + ctrl + {h,j,k,l}
-	bspc window -p {left,down,up,right}
-
-super + ctrl + {_,shift + }space
-	bspc {window -p cancel,desktop -c}
-
+# Resize window
 super + alt + {h,j,k,l}
 	bspc window -e {left -10,down +10,up -10,right +10}
 
+# Resize window
 super + alt + shift + {h,j,k,l}
 	bspc window -e {right -10,up +10,down -10,left +10}
 
+# Switch to previous/next occupied desktop
+super + bracket{left,right}
+	bspc desktop -f {prev.occupied,next.occupied}
+
+# Presel window for splitting
+super + ctrl + {Left,Down,Up,Right}
+	bspc window -p {left,down,up,right}
+
+# Circulate leaves of the tree backward or forward
+super + {comma,period}
+	bspc desktop -C {backward,forward}
+
+# Rotate leaves of tree
+super + shift + {comma,period}
+	bspc desktop -R {90,270}
+
+# Select windows or move
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc window -{f,s} {left,down,up,right}
+
+# Cancels a cut
+super + ctrl + {_,shift + }space
+	bspc {window -p cancel,desktop -c}
+
+# Set the split ratio
 super + ctrl + {1-9}
 	bspc window -r 0.{1-9}
 
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,window -d} ^{1-9,10}
+#
+# mouse bindings
+#
 
-~button1
-	bspc pointer -g focus
-
+# Move or resize window
 super + button{1-3}
 	bspc pointer -g {move,resize_side,resize_corner}
 
+# Needed for ^^^^
 super + !button{1-3}
 	bspc pointer -t %i %i
 
 super + @button{1-3}
 	bspc pointer -u
-
-# select desktop X
-super + {1-6}
-    bspc desktop -f ^{1-6}
 
 #
 # wm independent hotkeys
@@ -99,10 +106,6 @@ super + Return
 super + space
 	lighthouse | sh
 
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
-
 super + shift + w
 	firefox
 
@@ -111,3 +114,18 @@ super + shift + t
 
 Print
 	scrot -q 100
+
+
+## Media keys
+XF86AudioRaiseVolume
+	amixer -q sset Master 5%+
+
+XF86AudioLowerVolume
+	amixer -q sset Master 5%-
+
+XF86AudioMute
+	amixer -q set Master toggle
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd

@@ -22,6 +22,9 @@ setxkbmap gb
 
 skype &
 
+xset +fp /usr/share/fonts/local
+xset fp rehash
+
 # Not a horrible looking cursor
 xsetroot -cursor_name left_ptr &
 
@@ -36,4 +39,4 @@ eval "$(ssh-agent)"
 compton &
 
 sxhkd &
-exec bspwm
+exec bspwm -s

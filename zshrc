@@ -12,7 +12,8 @@ unset GREP_OPTIONS
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export LANG=en_GB.UTF-8
 
-EDITOR='vim'
+export EDITOR='vim'
+export PULSE_LATENCY_MSEC=60
 
 # For fig
 export DOCKER_HOST=tcp://localhost:4243

@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+COLOUR_GRUV_BLUE='#FF458488'
+CURRENT_VOL=`amixer | awk '/Front Left: Playback/ {gsub(/[\[\]]/,"",$5); print $5}'`
+ICON="\ue05d"
+
+# Change icon if silent
+if amixer get Master | grep -q off; then
+    ICON="\ue04f"
+fi
+
+echo -e %{F$COLOUR_GRUV_BLUE}$ICON" "%{F$COLOR_FOREGROUND}$CURRENT_VOL

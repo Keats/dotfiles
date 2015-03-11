@@ -72,7 +72,7 @@ echo LANG=$LOCALE> /mnt/etc/locale.conf
 # Making sure uk keyboard is persisted
 echo KEYMAP=$KB_LAYOUT > /mnt/etc/vconsole.conf
 # Living in London
-arch-chroot /mnt ln -fs /usr/share/zoneinfo/Europe/Minsk /etc/localtime
+arch-chroot /mnt ln -fs /usr/share/zoneinfo/Europe/London /etc/localtime
 arch-chroot /mnt hwclock --systohc --utc
 
 echo "Setting up hostname"
@@ -111,6 +111,6 @@ echo "Creating user"
 arch-chroot /mnt useradd -m -G wheel -s /bin/zsh $USER
 arch-chroot /mnt passwd $USER
 sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /mnt/etc/sudoers
-arch-chroot /mnt git clone $REPO /mnt/home/vincent/dotfiles
-
+arch-chroot /mnt git clone $REPO /home/$USER/dotfiles
+arch-chroot /mnt chown vincent:vincent /home/$USER/dotfiles
 echo "Base setup done, type reboot if you're happy"

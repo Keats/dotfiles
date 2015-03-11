@@ -1,0 +1,35 @@
+#!/usr/bin/bash
+
+get_battery() {
+	bat=$1 # 0 or 1
+	# We will use base_cut to get either BAT0 or BAT1
+	base_cut=$((2 + bat))
+	PERCENTAGE=`acpi | cut -d ',' -f 2 | awk '{key=$0; getline; print key "" $0;}' | cut -d ' ' -f ${base_cut}`
+	PERCENTAGE_VALUE=`acpi | cut -d ',' -f 2 | awk '{key=$0; getline; print key "" $0;}' | cut -d ' ' -f ${base_cut} | cut -d '%' -f 1`
+	STATUS=`cat /sys/class/power_supply/BAT${bat}/status`
+
+	if [[ $PERCENTAGE_VALUE -lt 75 ]]; then
+		ICON="\ue03a"
+		COLOUR=$COLOR_FOREGROUND
+	elif [[ $PERCENTAGE_VALUE -lt 50 ]]; then
+		ICON="\ue039"
+		COLOUR=$COLOUR_WARNING
+	elif [[ $PERCENTAGE_VALUE -lt 25 ]]; then
+		ICON="\ue038"
+		COLOUR=$COLOUR_DANGER
+	else
+		ICON="\ue03b"
+		COLOUR=$COLOR_FOREGROUND
+	fi
+
+	if [[ $STATUS = "Discharging" ]]; then
+		TIME=`acpi -b | awk '{print $5}'`
+		echo -e %{F$COLOUR_GRUV_BLUE}$ICON" "%{F$COLOUR}$PERCENTAGE"% (Dis.) - "$TIME%{F$COLOR_FOREGROUND}
+	elif [[ $STATUS = "Unknown" ]]; then
+		echo -e %{F$COLOUR_GRUV_BLUE}$ICON" "%{F$COLOUR}$PERCENTAGE"% (Conn.)"%{F$COLOR_FOREGROUND}
+	else
+		echo -e %{F$COLOUR_GRUV_BLUE}$ICON" "%{F$COLOUR}$PERCENTAGE"% ("$STATUS")"%{F$COLOR_FOREGROUND}
+	fi
+}
+
+echo -e $(get_battery 0)  $(get_battery 0)

@@ -38,7 +38,8 @@ echo "Installing common stuff"
 sudo pacman -S --needed vim openssh zsh acpi tlp unzip tar wget scrot redshift firefox \
                    numix-themes unclutter fcitx-mozc fcitx-configtool fcitx-ui-light lxappearance \
                    gnome-keyring gnome-icon-theme p7zip htop avahi libreoffice yaourt flashplugin \
-                   transmission-gtk reflector calibre anki mpv steam conky dzen2 feh
+                   transmission-gtk reflector calibre anki mpv steam conky dzen2 feh gmrun polkit \
+                   skype
 
 # TLP optimizes battery life
 sudo systemctl enable tlp.service
@@ -62,7 +63,7 @@ sudo pacman -S --needed rxvt-unicode xsel urxvt-perls
 echo "Installing font stuff"
 sudo pacman -S --needed infinality-bundle adobe-source-han-sans-otc-fonts ttf-dejavu ttf-liberation terminus-font \
                    adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts \
-                   freetype2-ubuntu
+                   freetype2-ubuntu otf-ipafont tamsyn-font
 
 echo "Installing file manager stuff"
 sudo pacman -S --needed thunar thunar-volman udisks2 udiskie ntfs-3g gvfs-mtp android-udev
@@ -71,8 +72,7 @@ sudo pacman -S --needed thunar thunar-volman udisks2 udiskie ntfs-3g gvfs-mtp an
 echo "And now install stuff from AUR"
 yaourt -S --noconfirm google-chrome dropbox spotify pycharm-professional jdk
 yaourt -S --noconfirm lighthouse-git numix-circle-icon-theme-git powerline-fonts-git tamzen-font-git sublime-text-dev \
-                      compton  ttf-fantasque-sans bspwm-git sxhkd-git bar-aint-recursive \
+                      compton ttf-fantasque-sans bspwm-git sxhkd-git bar-aint-recursive \
                       ttf-ms-fonts jmtpfs thunar-dropbox numix-icon-theme-git trimage-git \
-                      oh-my-zsh-git bdf-tewi-git gohufont
-
-
+                      oh-my-zsh-git bdf-tewi-git gohufont xtitle-git stlarch_font
+yaourt -S --noconfirm lastpass
