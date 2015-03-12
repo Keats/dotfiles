@@ -12,7 +12,7 @@ sudo dirmngr </dev/null
 # Enable multilib repo, this is witchery
 sudo sed -i ':begin;$!N;s/#\[multilib\]\n#Include/\[multilib\]\nInclude/;tbegin;P;D' /etc/pacman.conf
 # Add yaourt server
-grep -q 'archlinuxfr' /etc/pacman.conf 
+grep -q 'archlinuxfr' /etc/pacman.conf
 if [ $? -ne 0 ]; then
     echo -e "\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" | sudo tee --append /etc/pacman.conf
 fi
@@ -20,7 +20,7 @@ fi
 # Add pretty font rendering with infinality
 sudo pacman-key -r 962DDE58
 sudo pacman-key --lsign-key 962DDE58
-grep -q 'infinality-bundle' /etc/pacman.conf 
+grep -q 'infinality-bundle' /etc/pacman.conf
 if [ $? -ne 0 ]; then
     echo -e "\n[infinality-bundle]\nServer = http://bohoomil.com/repo/\$arch" | sudo tee --append /etc/pacman.conf
     echo -e "\n[infinality-bundle-multilib]\nServer = http://bohoomil.com/repo/multilib/\$arch" | sudo tee --append /etc/pacman.conf
@@ -36,10 +36,10 @@ sudo pacman -S --needed xorg-server xorg-xinit xorg-server-utils xterm xorg-xkil
 
 echo "Installing common stuff"
 sudo pacman -S --needed vim openssh zsh acpi tlp unzip tar wget scrot redshift firefox \
-                   numix-themes unclutter fcitx-mozc fcitx-configtool fcitx-ui-light lxappearance \
+                   numix-themes unclutter fcitx-im fcitx-mozc fcitx-configtool fcitx-ui-light lxappearance \
                    gnome-keyring gnome-icon-theme p7zip htop avahi libreoffice yaourt flashplugin \
                    transmission-gtk reflector calibre anki mpv steam conky dzen2 feh gmrun polkit \
-                   skype lxrandr zathura
+                   skype lxrandr zathura virtualbox-guest-modules
 
 # TLP optimizes battery life
 sudo systemctl enable tlp.service
@@ -70,9 +70,10 @@ sudo pacman -S --needed thunar thunar-volman udisks2 udiskie ntfs-3g gvfs-mtp an
 
 
 echo "And now install stuff from AUR"
-yaourt -S --noconfirm google-chrome dropbox spotify pycharm-professional jdk
+yaourt -S --noconfirm google-chrome dropbox spotify pycharm-professional jdk \
+                      android-sdk
 yaourt -S --noconfirm lighthouse-git numix-circle-icon-theme-git powerline-fonts-git tamzen-font-git sublime-text-dev \
                       compton ttf-fantasque-sans bspwm-git sxhkd-git bar-aint-recursive \
                       ttf-ms-fonts jmtpfs thunar-dropbox numix-icon-theme-git trimage-git \
-                      oh-my-zsh-git bdf-tewi-git gohufont xtitle-git stlarch_font
+                      oh-my-zsh-git bdf-tewi-git gohufont xtitle-git stlarch_font iojs-bin
 yaourt -S --noconfirm lastpass
