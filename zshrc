@@ -22,3 +22,4 @@ export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
 alias subl='subl3'
+alias android='/opt/android-sdk/tools/android'

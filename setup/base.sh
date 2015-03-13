@@ -15,12 +15,12 @@ loadkeys $KB_LAYOUT
 
 echo "Setting up partitions"
 # Setup partitions: sda1 == boot and sda2 == to-be-encrypted
-parted /dev/sda mklabel gpt 
+parted /dev/sda mklabel gpt
 parted /dev/sda mkpart primary ext3 1M 200M
 parted /dev/sda set 1 boot on
 parted /dev/sda mkpart primary ext3 200MB 100%
 
-# Load kernel modules device mapper and encryption 
+# Load kernel modules device mapper and encryption
 modprobe -a dm-mod dm_crypt
 
 # Following from https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS
@@ -78,7 +78,7 @@ arch-chroot /mnt hwclock --systohc --utc
 echo "Setting up hostname"
 echo $HOSTNAME > /mnt/etc/hostname
 echo "127.0.0.1 localhost.localdomain localhost ${HOSTNAME}" > /mnt/etc/hosts
-echo "::1   localhost.localdomain localhost ${HOSTNAME}" > /mnt/etc/hosts
+echo "::1   localhost.localdomain localhost ${HOSTNAME}" >> /mnt/etc/hosts
 
 echo "Making sure we still get wifi when we reboot..."
 arch-chroot /mnt pacman -S dialog wpa_actiond
