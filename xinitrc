@@ -31,6 +31,9 @@ feh --bg-scale dotfiles/wallpaper.jpg
 xsetroot -cursor_name left_ptr &
 xset b off
 
+# For pycharm
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # Japanese keyboard
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
@@ -39,6 +42,9 @@ fcitx &
 # https://wiki.archlinux.org/index.php/Dwm#Fixing_misbehaving_Java_applications
 # applies to bspwm as well
 wmname LG3D
+
+/usr/bin/xscreensaver -no-splash &
+xss-lock -- /usr/bin/xscreensaver -lock &
 
 eval "$(ssh-agent)"
 

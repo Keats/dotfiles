@@ -39,7 +39,8 @@ sudo pacman -S --needed vim openssh zsh acpi tlp unzip tar wget scrot redshift f
                    numix-themes unclutter fcitx-im fcitx-mozc fcitx-configtool fcitx-ui-light lxappearance \
                    gnome-keyring gnome-icon-theme p7zip htop avahi libreoffice yaourt flashplugin \
                    transmission-gtk reflector calibre anki mpv steam conky dzen2 feh gmrun polkit \
-                   skype lxrandr zathura virtualbox-guest-modules polkit mplayer wmname lib32-gtk2
+                   skype lxrandr virtualbox-guest-modules polkit mplayer wmname lib32-gtk2 \
+                   xscreensaver rsync
 
 # TLP optimizes battery life
 sudo systemctl enable tlp.service
@@ -76,4 +77,4 @@ yaourt -S --noconfirm lighthouse-git numix-circle-icon-theme-git powerline-fonts
                       compton ttf-fantasque-sans bspwm-git sxhkd-git bar-aint-recursive \
                       ttf-ms-fonts jmtpfs thunar-dropbox numix-icon-theme-git trimage-git \
                       oh-my-zsh-git bdf-tewi-git gohufont xtitle-git stlarch_font iojs-bin
-yaourt -S --noconfirm lastpass
+yaourt -S --noconfirm lastpass xss-lock zathura-pdf-mupdf-git

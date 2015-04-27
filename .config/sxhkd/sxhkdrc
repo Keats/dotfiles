@@ -115,6 +115,8 @@ super + shift + t
 Print
 	scrot -q 100
 
+super + l
+	xscreensaver-command --lock
 
 ## Media keys
 XF86AudioRaiseVolume

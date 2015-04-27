@@ -5,6 +5,7 @@ ZSH_THEME="keats"
 plugins=(git sprunge archlinux virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
+wmname LG3D
 
 unset GREP_OPTIONS
 
@@ -17,9 +18,10 @@ export PULSE_LATENCY_MSEC=60
 
 # For fig
 export DOCKER_HOST=tcp://localhost:4243
-export ANDROID_HOME=/opt/android-sdk
+export ANDROID_HOME=$HOME/android-sdk
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
 alias subl='subl3'
 alias android='/opt/android-sdk/tools/android'
+
