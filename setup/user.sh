@@ -12,4 +12,5 @@ ln -sf /home/$USER/dotfiles/.colors /home/$USER/.colors
 ln -sf /home/$USER/dotfiles/.config/bspwm /home/$USER/.config/bspwm
 ln -sf /home/$USER/dotfiles/.config/sxhkd /home/$USER/.config/sxhkd
 ln -sf /home/$USER/dotfiles/.config/lighthouse /home/$USER/.config/lighthouse
+ln -sf /home/$USER/dotfiles/dircolors /home/$USER/.dircolors
 sudo ln -s /home/vincent/dotfiles/keats.zsh-theme /usr/share/oh-my-zsh/theme

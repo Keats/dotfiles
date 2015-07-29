@@ -103,7 +103,6 @@ redshift
 reflector
 reiserfsprogs
 rsync
-rxvt-unicode
 scrot
 sed
 shadow
@@ -127,7 +126,6 @@ udiskie
 udisks2
 unclutter
 unzip
-urxvt-perls
 usbutils
 util-linux
 vi

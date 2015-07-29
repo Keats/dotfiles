@@ -1,6 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/usr/share/oh-my-zsh
 
+# ls colours
+eval $(dircolors ~/.dircolors)
+
 ZSH_THEME="keats"
 plugins=(git sprunge archlinux virtualenvwrapper)
 
