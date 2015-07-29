@@ -116,7 +116,7 @@ Print
 	scrot -q 100
 
 super + l
-	xscreensaver-command --lock
+	. ~/dotfiles/lock.sh
 
 ## Media keys
 XF86AudioRaiseVolume

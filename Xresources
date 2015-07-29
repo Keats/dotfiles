@@ -1,32 +1,3 @@
-#include "/home/vincent/.colors/gruvbox-dark"
-
-
-! Term config -------------------------------------------
-! Fonts
-URxvt*font: xft:Fantasque Sans Mono:size=11
-URxvt.letterSpace: -1
-
-! Random stuff
-URxvt.termName: rxvt-unicode
-URxvt.depth: 32
-URxvt*buffered: true
-URxvt.iso14755: false
-URxvt.scrollBar: off
-URxvt*scrollWithBuffer: true
-URxvt*saveLines: 5000
-urxvt*underlineURLs: true
-URxvt.urlLauncher: firefox
-URxvt.matcher.button: 1
-! internalBorder is padding basically
-urxvt*internalBorder: 20
-
-! Plugins
-URxvt.perl-ext-common: default,matcher,clipboard
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-
-
 !! Fonts -------------------------------------------------
 Xft.dpi: 96
 Xft.antialias: true

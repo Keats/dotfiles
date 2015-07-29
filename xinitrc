@@ -4,14 +4,14 @@
 #
 # Executed by startx (run your window manager from here)
 
-xrdb ~/.Xresources
+# xrdb ~/.Xresources
 start-pulseaudio-x11
 
 # Hide cursor when not used
 unclutter -grab -noevents -root &
 
 # london
-redshift  -l 51.5:0 &
+redshift -l 51.5:0 &
 
 # Auto-mounting
 udiskie -2 &
@@ -42,9 +42,6 @@ fcitx &
 # https://wiki.archlinux.org/index.php/Dwm#Fixing_misbehaving_Java_applications
 # applies to bspwm as well
 wmname LG3D
-
-/usr/bin/xscreensaver -no-splash &
-xss-lock -- /usr/bin/xscreensaver -lock &
 
 eval "$(ssh-agent)"
 

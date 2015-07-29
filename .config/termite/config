@@ -1,5 +1,5 @@
 [options]
-font = Fantasque Sans Mono 12
+font = Fira Mono 11
 allow_bold = true
 clickable_url = true
 browser = firefox
