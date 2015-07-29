@@ -18,7 +18,7 @@ export PULSE_LATENCY_MSEC=60
 
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 
-#
+
 export WORKON_HOME=$HOME/.virtualenvs
 # For Rust
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
