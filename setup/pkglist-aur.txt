@@ -13,7 +13,6 @@ numix-circle-icon-theme-git
 numix-icon-theme-git
 oh-my-zsh-git
 pycharm-professional
-stlarch_font
 sublime-text-dev
 sxhkd-git
 trimage-git
