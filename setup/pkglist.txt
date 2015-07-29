@@ -1,4 +1,5 @@
 acpi
+acpi_call
 adobe-source-code-pro-fonts
 adobe-source-han-sans-otc-fonts
 adobe-source-sans-pro-fonts
@@ -113,7 +114,9 @@ sysfsutils
 syslinux
 system-config-printer
 systemd-sysvcompat
+tamsyn-font
 tar
+termite
 texinfo
 thunar
 thunar-volman
