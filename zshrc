@@ -29,4 +29,6 @@ export RUST_SRC_PATH=/home/vincent/Github/rust/src
 source /usr/bin/virtualenvwrapper.sh
 
 alias subl='subl3'
-
+# Saving installed packages in files
+alias bacpac='pacman -Qqen > pkglist.txt'
+alias bacpac-aur='pacman -Qqm > pkglist-aur.txt'

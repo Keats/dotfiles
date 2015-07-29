@@ -23,7 +23,6 @@ bspc config focused_locked_border_color "#9a875f"
 
 # Rules
 bspc rule -a skype pseudo_tiled=on desktop=^3
-bspc rule -a Spotify pseudo_tiled=on
 bspc rule -a Transmission-gtk pseudo_tiled=on desktop=^7
 bspc rule -a firefox desktop=^1
 bspc rule -a google-chrome-stable desktop=^1

@@ -104,7 +104,7 @@ super + Return
 	termite
 
 super + space
-	lighthouse | sh
+	rofi -show run -terminal termite -lines 3 -eh 2 -width 100 -padding 800 -opacity "95" -bw 0 -bc "#282828" -bg "#282828" -fg "#928374" -hlbg "#282828" -hlfg "#ebdbb2"
 
 super + shift + w
 	firefox

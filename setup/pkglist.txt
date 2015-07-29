@@ -58,6 +58,7 @@ gvfs-gphoto2
 gvfs-mtp
 gzip
 htop
+i3lock
 inetutils
 iproute2
 iputils
@@ -122,6 +123,7 @@ thunar-volman
 tlp
 transmission-gtk
 tree
+ttf-fira-mono
 udiskie
 udisks2
 unclutter
@@ -146,7 +148,6 @@ xorg-server-utils
 xorg-xev
 xorg-xinit
 xorg-xkill
-xscreensaver
 xsel
 xterm
 yaourt
