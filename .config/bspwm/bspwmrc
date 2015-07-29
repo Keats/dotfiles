@@ -1,17 +1,18 @@
 #! /bin/sh
 
-bspc monitor -d web dev skype games vm music misc
+# Fontawesome icons
+# Need the font from AUR
+bspc monitor -d      
+
 
 # Visual options
-bspc config border_width        2
+bspc config border_width        0
 bspc config window_gap          2
 bspc config split_ratio         0.52
 bspc config borderless_monocle  true
 bspc config gapless_monocle     true
 bspc config focus_by_distance   true
 bspc config focus_follows_pointer true
-bspc config normal_frame_opacity 0.0
-bspc config focused_frame_opacity 0.1
 
 # Colors
 bspc config normal_border_color "#332d29"
@@ -28,4 +29,5 @@ bspc rule -a firefox desktop=^1
 bspc rule -a google-chrome-stable desktop=^1
 
 # Exec
+compton &
 ~/.config/bspwm/panel/panel &

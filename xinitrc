@@ -4,7 +4,7 @@
 #
 # Executed by startx (run your window manager from here)
 
-# xrdb ~/.Xresources
+xrdb ~/.Xresources
 start-pulseaudio-x11
 
 # Hide cursor when not used
@@ -22,14 +22,13 @@ setxkbmap gb
 
 skype &
 
-xset +fp /usr/share/fonts/local
-xset fp rehash
+#xset +fp /usr/share/fonts/local
+#xset fp rehash
 
 feh --bg-scale dotfiles/wallpaper.jpg
 
 # Not a horrible looking cursor
 xsetroot -cursor_name left_ptr &
-xset b off
 
 # For pycharm
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -45,7 +44,5 @@ wmname LG3D
 
 eval "$(ssh-agent)"
 
-compton &
-
 sxhkd &
-exec bspwm -s
+exec bspwm

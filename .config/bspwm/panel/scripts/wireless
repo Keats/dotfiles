@@ -1,20 +1,6 @@
-
 #!/usr/bin/bash
-SSID=`iwconfig wlp3s0 | awk '/ESSID/ {gsub("ESSID:|\"","",$4); print $4}'`
-QUALITY=`iwconfig wlp3s0 | awk '/Quality/ {gsub("Quality=","",$2); split($2,a,"/"); b = int(a[1] / a[2] * 100); print b}'`
-COLOUR_WARNING='#FFFFC45D'
-COLOUR_DANGER='#FFFF5D5D'
-COLOUR_GRUV_MAGENTA='#FF2aa198'
 
-if [[ $QUALITY -lt 50 ]]; then
-	ICON="\ue04a"
-	COLOUR=$COLOUR_WARNING
-elif [[ $QUALITY -lt 25 ]]; then
-	ICON="\ue049"
-	COLOUR=$COLOUR_DANGER
-elif [[ $QUALITY -gt 50 ]]; then
-	ICON="\ue04b"
-	COLOUR=$COLOR_FOREGROUND
-fi
+ssid=`iwconfig wlp3s0 | awk '/ESSID/ {gsub("ESSID:|\"","",$4); print $4}'`
+quality=`iwconfig wlp3s0 | awk '/Quality/ {gsub("Quality=","",$2); split($2,a,"/"); b = int(a[1] / a[2] * 100); print b}'`
 
-echo -e %{F$COLOUR_GRUV_MAGENTA}$ICON" "%{F$COLOUR}$SSID%{F$COLOR_FOREGROUND}
+echo -e "\uf1eb ${ssid}"

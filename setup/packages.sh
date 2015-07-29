@@ -33,7 +33,3 @@ sudo pacman -S $(< pkglist.txt)
 
 echo "Installing AUR packages"
 yaourt -S --noconfirm $(< pkglist-aur.txt)
-
-# TLP optimizes battery life
-sudo systemctl enable tlp.service
-sudo systemctl enable tlp-sleep.service

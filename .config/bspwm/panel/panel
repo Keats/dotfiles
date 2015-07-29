@@ -14,29 +14,41 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 mkfifo "$PANEL_FIFO"
 
 bspc config top_padding $PANEL_HEIGHT
-
-
 bspc control --subscribe > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
 
+while true; do
+	batteries=$(~/.config/bspwm/panel/scripts/batteries)
+	echo "B${batteries}";
+	sleep 30;
+done > $PANEL_FIFO &
 
-while true ; do
-	WIFI=$(~/.config/bspwm/panel/scripts/wireless)
-	VOLUME=$(~/.config/bspwm/panel/scripts/volume)
-	CLOCK=$(~/.config/bspwm/panel/scripts/clock)
-	RAM=$(~/.config/bspwm/panel/scripts/ram)
-	BATTERIES=$(~/.config/bspwm/panel/scripts/batteries)
+while true; do
+	clock=$(~/.config/bspwm/panel/scripts/clock)
+	echo "C${clock}";
+	sleep 60;
+done > $PANEL_FIFO &
 
-	echo "S" $WIFI "|" $RAM%% "|" $BATTERIES "|" $VOLUME%%  "|" $CLOCK " " > "$PANEL_FIFO" &
-	sleep 5s
-done &
+while true; do
+	wifi=$(~/.config/bspwm/panel/scripts/wireless)
+	echo "L${wifi}";
+	sleep 10;
+done > $PANEL_FIFO &
+
+while true; do
+	volume=$(~/.config/bspwm/panel/scripts/volume)
+	echo "V${volume}";
+	sleep 1;
+done > $PANEL_FIFO &
+
 
 cat $PANEL_FIFO \
-	| $(dirname $0)/panel_bar \
-	| bar \
-		-g 1920x$PANEL_HEIGHT \
+	| $(dirname $0)/panel_bar  \
+	| lemonbar \
+		-g x$PANEL_HEIGHT \
 		-B $COLOR_BACKGROUND \
 		-F $COLOR_FOREGROUND \
+		-f $ICON_FONT \
 		-f $FONT &
 
 wait

@@ -1,6 +1,5 @@
 #!/usr/bin/bash
 
-ICON="\ue016"
-DATETIME=`date "+%d %B %H:%M"`
-COLOUR_GRUV_GREEN='#FF98971A'
-echo -e %{F$COLOUR_GRUV_GREEN}$ICON" "%{F$COLOR_FOREGROUND}$DATETIME
+icon='\uf073'
+datetime=`date "+%d %B %H:%M"`
+echo -e "${icon}  ${datetime}"

@@ -13,14 +13,11 @@ wmname LG3D
 unset GREP_OPTIONS
 
 # User configuration
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/core_perl"
 export LANG=en_GB.UTF-8
 
 export EDITOR='vim'
 export PULSE_LATENCY_MSEC=60
-
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
-
 
 export WORKON_HOME=$HOME/.virtualenvs
 # For Rust
@@ -29,6 +26,7 @@ export RUST_SRC_PATH=/home/vincent/Github/rust/src
 source /usr/bin/virtualenvwrapper.sh
 
 alias subl='subl3'
+
 # Saving installed packages in files
 alias bacpac='pacman -Qqen > pkglist.txt'
 alias bacpac-aur='pacman -Qqm > pkglist-aur.txt'
