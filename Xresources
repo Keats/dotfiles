@@ -3,8 +3,6 @@
 
 ! Term config -------------------------------------------
 ! Fonts
-!URxvt*font: xft:gohufont:size=14
-!URxvt*font: xft:TamzenForPowerline:size=17
 URxvt*font: xft:Fantasque Sans Mono:size=11
 URxvt.letterSpace: -1
 
