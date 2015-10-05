@@ -4,11 +4,7 @@
 #
 # Executed by startx (run your window manager from here)
 
-xrdb ~/.Xresources
 start-pulseaudio-x11
-
-# Hide cursor when not used
-unclutter -grab -noevents -root &
 
 # london
 redshift -l 51.5:0 &
@@ -21,9 +17,6 @@ syndaeamon -t -k -i 2 &
 setxkbmap gb
 
 skype &
-
-#xset +fp /usr/share/fonts/local
-#xset fp rehash
 
 feh --bg-scale dotfiles/wallpaper.jpg
 

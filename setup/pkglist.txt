@@ -13,6 +13,7 @@ avahi
 bash
 binutils
 bison
+blender
 bzip2
 cairo-infinality-ultimate
 calibre
@@ -23,6 +24,7 @@ device-mapper
 dhcpcd
 dialog
 diffutils
+docker
 e2fsprogs
 fakeroot
 fcitx-configtool
@@ -78,11 +80,14 @@ make
 man-db
 man-pages
 mdadm
+mercurial
 mesa
 mplayer
 mpv
 nano
 netctl
+nodejs
+npm
 ntfs-3g
 numix-themes
 openssh
@@ -103,6 +108,7 @@ python-virtualenvwrapper
 redshift
 reflector
 reiserfsprogs
+rofi
 rsync
 scrot
 sed
@@ -120,13 +126,11 @@ termite
 texinfo
 thunar
 thunar-volman
-tlp
 transmission-gtk
 tree
 ttf-fira-mono
 udiskie
 udisks2
-unclutter
 unzip
 usbutils
 util-linux
