@@ -13,17 +13,13 @@ super + shift + q
 super + shift + k
 	bspc window -k
 
-# Toggle layout between monocle and tiled
-super + t
-	bspc desktop -l next
-
 # balance tree (in size)
 super + b
 	bspc desktop -B
 
 # toggle floating or full screen
-super + {s,f}
-	bspc window -t {floating,fullscreen}
+super + {t,p,s,f}
+	bspc window -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # Toggle last focused windows or workspace/desktop back-and-forth
 super + {grave,Tab}
@@ -104,7 +100,7 @@ super + Return
 	termite
 
 super + space
-	rofi -show run -terminal termite -lines 3 -eh 2 -width 100 -padding 800 -opacity "95" -bw 0 -bc "#282828" -bg "#282828" -fg "#928374" -hlbg "#282828" -hlfg "#ebdbb2"
+	rofi -show run -terminal termite -lines 3 -eh 2 -width 100 -fullscreen -padding 400 -opacity "95" -bw 0 -bc "#282828" -bg "#282828" -fg "#928374" -hlbg "#282828" -hlfg "#ebdbb2"
 
 super + shift + w
 	firefox
