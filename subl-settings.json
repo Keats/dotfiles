@@ -2,7 +2,7 @@
   "color_scheme": "Packages/User/SublimeLinter/gruvbox (SL).tmTheme",
   "ensure_newline_at_eof_on_save": true,
   "font_face": "Source Code Pro",
-  "font_size": 12,
+  "font_size": 17,
   "ignored_packages":
   [
     "Vintage"
@@ -16,7 +16,7 @@
   "tab_size": 2,
   "tabs_padding_small": true,
   "tabs_small": true,
-  "theme": "Spacegray Eighties.sublime-theme",
+  "theme": "Brogrammer.sublime-theme",
   "translate_tabs_to_spaces": true,
   "trim_trailing_white_space_on_save": true
 }
