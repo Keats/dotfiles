@@ -14,6 +14,7 @@ bash
 binutils
 bison
 blender
+bspwm
 bzip2
 cairo-infinality-ultimate
 calibre
@@ -51,6 +52,7 @@ git
 glibc
 gnome-icon-theme
 gnome-keyring
+go
 gphoto2
 gptfdisk
 graphicsmagick
@@ -86,8 +88,6 @@ mplayer
 mpv
 nano
 netctl
-nodejs
-npm
 ntfs-3g
 numix-themes
 openssh
@@ -97,6 +97,7 @@ patch
 pciutils
 pcmciautils
 perl
+pgadmin3
 pkg-config
 procps-ng
 psmisc
@@ -108,14 +109,15 @@ python-virtualenvwrapper
 redshift
 reflector
 reiserfsprogs
-rofi
 rsync
 scrot
 sed
 shadow
 skype
 steam
+sublime-text-dev
 sudo
+sxhkd
 sysfsutils
 syslinux
 system-config-printer
