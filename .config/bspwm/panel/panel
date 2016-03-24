@@ -14,7 +14,7 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 mkfifo "$PANEL_FIFO"
 
 bspc config top_padding $PANEL_HEIGHT
-bspc control --subscribe > "$PANEL_FIFO" &
+bspc subscribe report > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
 
 while true; do
@@ -40,7 +40,6 @@ while true; do
 	echo "V${volume}";
 	sleep 1;
 done > $PANEL_FIFO &
-
 
 cat $PANEL_FIFO \
 	| $(dirname $0)/panel_bar  \

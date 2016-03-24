@@ -7,75 +7,59 @@ super + alt + Escape
 
 # Close window
 super + shift + q
-	bspc window -c
+	bspc node -c
 
 # Kill window
 super + shift + k
-	bspc window -k
+	bspc node -k
 
 # balance tree (in size)
 super + b
 	bspc desktop -B
 
 # toggle floating or full screen
-super + {t,p,s,f}
-	bspc window -t {tiled,pseudo_tiled,floating,fullscreen}
-
-# Toggle last focused windows or workspace/desktop back-and-forth
-super + {grave,Tab}
-	bspc {window,desktop} -f last
-
-# swap desktop with last
-super + apostrophe
-	bspc window -s last
+super + {t,shift + t,s,f}
+    bspc node -t '~{tiled,pseudo_tiled,floating,fullscreen}'
 
 # Focus the given desktop or move a window to a given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,window -d} ^{1-9,10}
-
-# swap current window with the biggest on screen
-super + m
-	bspc window -s biggest
+	bspc {desktop -f,node -d} '^{1-9,10}'
 
 # Focus next or prev window
 super + {_,shift + }c
-	bspc window -f {next,prev}
+	bspc node -f {next,prev}
 
 # Resize window
 super + alt + {h,j,k,l}
-	bspc window -e {left -10,down +10,up -10,right +10}
+	bspc node -e {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
 
 # Resize window
 super + alt + shift + {h,j,k,l}
-	bspc window -e {right -10,up +10,down -10,left +10}
-
-# Switch to previous/next occupied desktop
-super + bracket{left,right}
-	bspc desktop -f {prev.occupied,next.occupied}
+	bspc node -e {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
 
 # Presel window for splitting
 super + ctrl + {Left,Down,Up,Right}
-	bspc window -p {left,down,up,right}
+	bspc node -p {west,south,north,east}
 
 # Circulate leaves of the tree backward or forward
 super + {comma,period}
-	bspc desktop -C {backward,forward}
+	bspc node @/ -C {backward,forward}
 
 # Rotate leaves of tree
 super + shift + {comma,period}
-	bspc desktop -R {90,270}
+	bspc node @/ -R {90,270}
 
 # Select windows or move
 super + {_,shift + }{Left,Down,Up,Right}
-	bspc window -{f,s} {left,down,up,right}
+	bspc node -{f,s} {west,south,north,east}
 
 # Cancels a cut
-super + ctrl + {_,shift + }space
-	bspc {window -p cancel,desktop -c}
+super + ctrl + space
+	bspc node -p cancel
 
 # Set the split ratio
 super + ctrl + {1-9}
-	bspc window -r 0.{1-9}
+	bspc node -r 0.{1-9}
 
 #
 # mouse bindings
