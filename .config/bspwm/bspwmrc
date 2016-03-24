@@ -23,10 +23,10 @@ bspc config focused_sticky_border_color '#d5c4a1'
 bspc config urgent_border_color '#cc241d'
 
 # Rules
-bspc rule -a skype state=pseudo_tiled desktop='^3'
-bspc rule -a Transmission-gtk state=pseudo_tiled desktop='^7'
-bspc rule -a firefox desktop='^1'
-bspc rule -a google-chrome-stable desktop='^1'
+bspc rule -a Skype desktop='^3' state=pseudo_tiled
+bspc rule -a Transmission-gtk desktop='^7' state=pseudo_tiled
+bspc rule -a Firefox desktop='^1'
+bspc rule -a google-chrome desktop='^1'
 
 # Exec
 compton &

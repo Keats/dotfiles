@@ -18,7 +18,7 @@ super + b
 	bspc desktop -B
 
 # toggle floating or full screen
-super + {t,shift + t,s,f}
+super + {t,p,s,f}
     bspc node -t '~{tiled,pseudo_tiled,floating,fullscreen}'
 
 # Focus the given desktop or move a window to a given desktop
