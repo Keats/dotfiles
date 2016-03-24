@@ -10,6 +10,7 @@ plugins=(git sprunge archlinux virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 wmname LG3D
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 unset GREP_OPTIONS
 
@@ -25,7 +26,7 @@ export PULSE_LATENCY_MSEC=60
 export WORKON_HOME=$HOME/.virtualenvs
 # For Go
 export GOPATH=$HOME/Code/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:$HOME/.multirust/toolchains/stable/cargo/bin
 
 # For Rust
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
