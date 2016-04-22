@@ -149,7 +149,6 @@ virtualbox
 virtualbox-guest-dkms
 wget
 which
-wkhtmltopdf
 wmname
 wpa_actiond
 xf86-input-keyboard
