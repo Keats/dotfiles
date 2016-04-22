@@ -29,13 +29,13 @@ super + {_,shift + }{1-9,0}
 super + {_,shift + }c
 	bspc node -f {next,prev}
 
-# Resize window
+# expand the tiled space in the given direction
 super + alt + {h,j,k,l}
-	bspc node -e {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
+	bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
 
-# Resize window
+# contract the tiled space in the given direction
 super + alt + shift + {h,j,k,l}
-	bspc node -e {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
+	bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
 
 # Presel window for splitting
 super + ctrl + {Left,Down,Up,Right}
