@@ -39,3 +39,4 @@ eval "$(ssh-agent)"
 
 sxhkd &
 exec bspwm
+# exec i3

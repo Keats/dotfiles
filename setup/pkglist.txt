@@ -13,7 +13,6 @@ avahi
 bash
 binutils
 bison
-blender
 bspwm
 bzip2
 cairo-infinality-ultimate
@@ -86,7 +85,6 @@ make
 man-db
 man-pages
 mdadm
-mercurial
 mesa
 mplayer
 mpv
@@ -119,7 +117,6 @@ sed
 shadow
 skype
 steam
-strace
 sublime-text-dev
 sudo
 sxhkd
@@ -154,7 +151,6 @@ wpa_actiond
 xf86-input-keyboard
 xf86-input-mouse
 xf86-input-synaptics
-xf86-video-intel
 xfsprogs
 xorg-server
 xorg-server-utils
