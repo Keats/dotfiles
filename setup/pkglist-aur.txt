@@ -1,7 +1,6 @@
 advancecomp
 direnv
-geoclue
-girara-git
+foxitreader
 git-crypt
 google-chrome
 google-musicmanager
@@ -21,6 +20,5 @@ ttf-fantasque-sans
 ttf-fontawesome-git
 ttf-ms-fonts
 wrk
+xcb-util-xrm
 xtitle-git
-zathura-git
-zathura-pdf-mupdf-git
