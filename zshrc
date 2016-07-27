@@ -9,9 +9,6 @@ plugins=(git sprunge archlinux virtualenvwrapper)
 
 
 source $ZSH/oh-my-zsh.sh
-wmname LG3D
-export _JAVA_AWT_WM_NONREPARENTING=1
-
 unset GREP_OPTIONS
 
 # User configuration
