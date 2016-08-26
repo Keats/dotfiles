@@ -1,18 +1,11 @@
 #!/bin/bash
 
-HOSTNAME=thinkpad
+HOSTNAME=arch
 KB_LAYOUT=uk
 LOCALE=en_GB.UTF-8
-VOLUME_GROUP_NAME=crypt
+VOLUME_NAME=crypt
 USER=vincent
 REPO=https://github.com/Keats/dotfiles.git
-
-DISK=/dev/sda
-HAS_WINDOWS=true
-BOOT_PARTITION=/dev/sda2
-ARCH_PARTITION=/dev/sda3
-EFI_PARTITION=/dev/sda1 # TODO: update that
-
 
 echo "Setting up keyboard"
 loadkeys $KB_LAYOUT
@@ -21,47 +14,47 @@ echo "Sync time"
 timedatectl set-ntp true
 
 echo "Setting up partitions"
-parted /dev/sda mkpart primary ext4 REPLACETHIS 100%
+parted /dev/sda mklabel gpt
+parted /dev/sda mkpart ESP fat32 1M 513M
+parted /dev/sda set 1 boot on
+parted /dev/sda mkpart primary ext4 513M 100%
 
-# Following from https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS
+# Create EFI partition
+mkfs.fat -F32 /dev/sda1
+
 # Create a container with stronger encryption than default
 echo "You will be asked to set the password for the encrypted volume"
-cryptsetup -v --cipher=aes-xts-plain64 --key-size=512 --hash=sha512 --iter-time=5000 --use-random luksFormat /dev/sda2
+cryptsetup --cipher=aes-xts-plain64 --key-size=512 --hash=sha512 --iter-time=5000 --use-random luksFormat /dev/sda2
 # Open the container
+# Enable TRIM at the cost of a bit of security
+cryptsetup open --allow-discards --type luks /dev/sda2 $VOLUME_NAME
+# Create filesystem
+mkfs.ext4 -L "Arch" /dev/mapper/$VOLUME_NAME
 
-# Open the container
-cryptsetup open --allow-discards --type luks /dev/sda2 crypt
-# Create filesystems
-mkfs.ext4 -L "Arch" /dev/mapper/crypt
 # And mount them
-mount /dev/mapper/crypt /mnt
-mkdir /mnt/home
+mount /dev/mapper/$VOLUME_NAME /mnt
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
 
-# EFI boot
-mount /dev/sda2 /mnt/boot
-
+echo "Running pacstrap"
+pacstrap -i /mnt base base-devel
 genfstab -U /mnt >> /mnt/etc/fstab
-
 
 echo "Optimizing mirror list"
 pacman -Syy  # refresh first otherwise the install below would fail
 pacman -S reflector
-reflector -f 6 -l 6 --save /etc/pacman.d/mirrorlist
+reflector -f 6 -l 6 --save /mnt/etc/pacman.d/mirrorlist
 pacman -Syy  # refresh again
-
-echo "Running pacstrap"
-pacstrap -i /mnt base base-devel
 
 echo "Everything below is done chrooting"
 # Start configuring the base system
 
 echo "Setting up GB related stuff (locale, keyboard, tz)"
 # Setting up GB locale
-sed -i s/en_US.UTF-8/#en_US.UTF-8/ /mnt/etc/locale.gen
-sed -i s/#$LOCALE/$LOCALE/ /mnt/etc/locale.gen
+sed -i "s/en_US.UTF-8/#en_US.UTF-8/" /mnt/etc/locale.gen
+sed -i "s/#$LOCALE/$LOCALE/" /mnt/etc/locale.gen
 arch-chroot /mnt locale-gen
 echo LANG=$LOCALE> /mnt/etc/locale.conf
-
 # Making sure uk keyboard is persisted
 echo KEYMAP=$KB_LAYOUT > /mnt/etc/vconsole.conf
 # Living in London
@@ -75,7 +68,7 @@ echo "::1   localhost.localdomain localhost ${HOSTNAME}" >> /mnt/etc/hosts
 
 echo "Making sure we still get wifi when we reboot..."
 # Installing git and zsh for pkg bootstrap later on
-arch-chroot /mnt pacman -S networkmanager dhclient zsh git openssh
+arch-chroot /mnt pacman -S networkmanager dhclient zsh git openssh intel-ucode
 arch-chroot /mnt systemctl enable NetworkManager.service
 
 echo "Editing initial ramdisk"
@@ -88,13 +81,13 @@ arch-chroot /mnt passwd
 
 echo "Bootloader time"
 # https://wiki.archlinux.org/index.php/Systemd-boot
-arch-chroot bootctl install
+arch-chroot bootctl --path=/boot install
 arch-chroot echo "title Arch Linux Encrypted" >> /boot/loader/entries/arch.conf
 arch-chroot echo "linux /vmlinuz-linux" >> /boot/loader/entries/arch.conf
+arch-chroot echo "initrd /intel-ucode.img" >> /boot/loader/entries/arch.conf
 arch-chroot echo "initrd /initramfs-linux.img" >> /boot/loader/entries/arch.conf
 UUID=$(blkid /dev/sda5 | awk '{print $2}' | sed 's/"//g')
-arch-chroot echo "options cryptdevice=$UUID:crypt:allow-discards root=/dev/mapper/crypt quiet rw" >> /boot/loader/entries/arch.conf
-arch-chroot bootctl update
+arch-chroot echo "options cryptdevice=$UUID:crypt:allow-discards root=/dev/mapper/$VOLUME quiet rw" >> /boot/loader/entries/arch.conf
 
 echo "Creating user"
 arch-chroot /mnt useradd -m -G wheel -s /bin/zsh $USER
