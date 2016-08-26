@@ -86,7 +86,7 @@ arch-chroot echo "title Arch Linux Encrypted" >> /boot/loader/entries/arch.conf
 arch-chroot echo "linux /vmlinuz-linux" >> /boot/loader/entries/arch.conf
 arch-chroot echo "initrd /intel-ucode.img" >> /boot/loader/entries/arch.conf
 arch-chroot echo "initrd /initramfs-linux.img" >> /boot/loader/entries/arch.conf
-UUID=$(blkid /dev/sda5 | awk '{print $2}' | sed 's/"//g')
+UUID=$(blkid /dev/sda2 | awk '{print $2}' | sed 's/"//g')
 arch-chroot echo "options cryptdevice=$UUID:crypt:allow-discards root=/dev/mapper/$VOLUME quiet rw" >> /boot/loader/entries/arch.conf
 
 echo "Creating user"
