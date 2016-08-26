@@ -115,8 +115,6 @@ rsync
 scrot
 sed
 shadow
-skype
-steam
 sublime-text-dev
 sudo
 sxhkd
@@ -162,3 +160,5 @@ xterm
 yaourt
 zeromq
 zsh
+imagemagick
+intel-ucode
