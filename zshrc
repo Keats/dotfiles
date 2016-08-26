@@ -38,4 +38,3 @@ alias bacpac-aur='pacman -Qqm > pkglist-aur.txt'
 source /usr/share/nvm/init-nvm.sh
 eval "$(direnv hook zsh)"
 
-. /home/vincent/.nix-profile/etc/profile.d/nix.sh

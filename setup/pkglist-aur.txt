@@ -3,7 +3,6 @@ direnv
 foxitreader
 git-crypt
 google-chrome
-google-musicmanager
 google-talkplugin
 hugo
 jdk
@@ -17,8 +16,6 @@ pycharm-professional
 rofi-git
 trimage-git
 ttf-fantasque-sans
-ttf-fontawesome-git
 ttf-ms-fonts
 wrk
-xcb-util-xrm
 xtitle-git
