@@ -21,7 +21,9 @@ if [ $? -ne 0 ]; then
     echo -e "\n[infinality-bundle-multilib]\nServer = http://bohoomil.com/repo/multilib/\$arch" | sudo tee --append /etc/pacman.conf
 fi
 
-sudo pacman -Syu
+sudo pacman -Sy
+# it's in pkglist.txt already but better to be explicit
+sudo pacman -S yaourt
 
 echo "Installing official packages"
 sudo pacman -S $(< pkglist.txt)
