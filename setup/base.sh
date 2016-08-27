@@ -88,7 +88,7 @@ echo "linux /vmlinuz-linux" >> /mnt/boot/loader/entries/arch.conf
 echo "initrd /intel-ucode.img" >> /mnt/boot/loader/entries/arch.conf
 echo "initrd /initramfs-linux.img" >> /mnt/boot/loader/entries/arch.conf
 UUID=$(blkid /dev/sda2 | awk '{print $2}' | sed 's/"//g')
-echo "options cryptdevice=$UUID:$VOLUME_NAME:allow-discards root=/dev/mapper/$VOLUME quiet rw" >> /mnt/boot/loader/entries/arch.conf
+echo "options cryptdevice=$UUID:$VOLUME_NAME:allow-discards root=/dev/mapper/$VOLUME_NAME quiet rw" >> /mnt/boot/loader/entries/arch.conf
 
 echo "Creating user"
 arch-chroot /mnt useradd -m -G wheel -s /bin/zsh $USER
