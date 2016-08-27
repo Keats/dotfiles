@@ -47,58 +47,53 @@ reflector -f 6 -l 6 --save /mnt/etc/pacman.d/mirrorlist
 pacman -Syy  # refresh again
 
 echo "Everything below is done chrooting"
-arch-chroot /mnt /bin/bash
 # Start configuring the base system
 
 echo "Setting up GB related stuff (locale, keyboard, tz)"
 # Setting up GB locale
-sed -i "s/en_US.UTF-8/#en_US.UTF-8/" /etc/locale.gen
-sed -i "s/#$LOCALE/$LOCALE/" /etc/locale.gen
-locale-gen
-echo LANG=$LOCALE> /etc/locale.conf
+sed -i "s/en_US.UTF-8/#en_US.UTF-8/" /mnt/etc/locale.gen
+sed -i "s/#$LOCALE/$LOCALE/" /mnt/etc/locale.gen
+arch-chroot /mnt locale-gen
+echo LANG=$LOCALE> /mnt/etc/locale.conf
 # Making sure uk keyboard is persisted
-echo KEYMAP=$KB_LAYOUT > /etc/vconsole.conf
+echo KEYMAP=$KB_LAYOUT > /mnt/etc/vconsole.conf
 # Living in London
-ln -fs /usr/share/zoneinfo/Europe/London /etc/localtime
-hwclock --systohc --utc
+arch-chroot /mnt ln -fs /usr/share/zoneinfo/Europe/London /etc/localtime
+arch-chroot /mnt hwclock --systohc --utc
 
 echo "Setting up hostname"
-echo $HOSTNAME > /etc/hostname
-echo "127.0.0.1 localhost.localdomain localhost ${HOSTNAME}" > /etc/hosts
-echo "::1   localhost.localdomain localhost ${HOSTNAME}" >> /etc/hosts
+echo $HOSTNAME > /mnt/etc/hostname
+echo "127.0.0.1 localhost.localdomain localhost ${HOSTNAME}" > /mnt/etc/hosts
+echo "::1   localhost.localdomain localhost ${HOSTNAME}" >> /mnt/etc/hosts
 
 echo "Making sure we still get wifi when we reboot..."
 # Installing git and zsh for pkg bootstrap later on
-pacman -S networkmanager dhclient zsh git openssh intel-ucode util-linux
-systemctl enable NetworkManager.service
-systemctl enable fstrim.timer
+arch-chroot /mnt pacman -S networkmanager dhclient zsh git openssh intel-ucode util-linux
+arch-chroot /mnt systemctl enable NetworkManager.service
+arch-chroot /mnt systemctl enable fstrim.timer
 
 echo "Editing initial ramdisk"
-cp /etc/mkinitcpio.conf /etc/mkinitcpio.conf.bak
-sed -i "s/filesystems keyboard/encrypt keymap filesystems keyboard/" /etc/mkinitcpio.conf
-mkinitcpio -p linux
+cp /mnt/etc/mkinitcpio.conf /mnt/etc/mkinitcpio.conf.bak
+sed -i "s/filesystems keyboard/encrypt keymap filesystems keyboard/" /mnt/etc/mkinitcpio.conf
+arch-chroot /mnt mkinitcpio -p linux
 
 echo "Change root password"
-passwd
+arch-chroot /mnt passwd
 
 echo "Bootloader time"
 # https://wiki.archlinux.org/index.php/Systemd-boot
-bootctl --path=/boot install
-echo "title Arch Linux Encrypted" >> /boot/loader/entries/arch.conf
-echo "linux /vmlinuz-linux" >> /boot/loader/entries/arch.conf
-echo "initrd /intel-ucode.img" >> /boot/loader/entries/arch.conf
-echo "initrd /initramfs-linux.img" >> /boot/loader/entries/arch.conf
+arch-chroot /mnt bootctl --path=/boot install
+echo "title Arch Linux Encrypted" >> /mnt/boot/loader/entries/arch.conf
+echo "linux /vmlinuz-linux" >> /mnt/boot/loader/entries/arch.conf
+echo "initrd /intel-ucode.img" >> /mnt/boot/loader/entries/arch.conf
+echo "initrd /initramfs-linux.img" >> /mnt/boot/loader/entries/arch.conf
 UUID=$(blkid /dev/sda2 | awk '{print $2}' | sed 's/"//g')
-echo "options cryptdevice=$UUID:$VOLUME_NAME:allow-discards root=/dev/mapper/$VOLUME quiet rw" >> /boot/loader/entries/arch.conf
+echo "options cryptdevice=$UUID:$VOLUME_NAME:allow-discards root=/dev/mapper/$VOLUME quiet rw" >> /mnt/boot/loader/entries/arch.conf
 
 echo "Creating user"
-useradd -m -G wheel -s /bin/zsh $USER
-passwd $USER
-sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
-git clone $REPO /home/$USER/dotfiles
-chown $USER:$USER /home/$USER/dotfiles
-
-# Let NTP synchronize the time, not sure if needed again but when in doubt
-timedatectl set-ntp true
-
+arch-chroot /mnt useradd -m -G wheel -s /bin/zsh $USER
+arch-chroot /mnt passwd $USER
+sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /mnt/etc/sudoers
+arch-chroot /mnt git clone $REPO /home/$USER/dotfiles
+arch-chroot /mnt chown $USER:$USER /home/$USER/dotfiles
 echo "Base setup done, type reboot if you're happy"
