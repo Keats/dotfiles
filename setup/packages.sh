@@ -1,7 +1,4 @@
 #!/bin/bash
-
-# If you are running on wired, you will need to run systemctl enable/start dhcpcd@interface_name.service
-# Use wifi-menu if no wifi
 sudo pacman -Syu
 
 sudo pacman-key --init

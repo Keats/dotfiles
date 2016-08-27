@@ -68,8 +68,9 @@ echo "::1   localhost.localdomain localhost ${HOSTNAME}" >> /mnt/etc/hosts
 
 echo "Making sure we still get wifi when we reboot..."
 # Installing git and zsh for pkg bootstrap later on
-arch-chroot /mnt pacman -S networkmanager dhclient zsh git openssh intel-ucode
+arch-chroot /mnt pacman -S networkmanager dhclient zsh git openssh intel-ucode util-linux
 arch-chroot /mnt systemctl enable NetworkManager.service
+arch-chroot /mnt systemctl enable fstrim.timer
 
 echo "Editing initial ramdisk"
 cp /mnt/etc/mkinitcpio.conf /mnt/etc/mkinitcpio.conf.bak
@@ -87,7 +88,7 @@ arch-chroot echo "linux /vmlinuz-linux" >> /boot/loader/entries/arch.conf
 arch-chroot echo "initrd /intel-ucode.img" >> /boot/loader/entries/arch.conf
 arch-chroot echo "initrd /initramfs-linux.img" >> /boot/loader/entries/arch.conf
 UUID=$(blkid /dev/sda2 | awk '{print $2}' | sed 's/"//g')
-arch-chroot echo "options cryptdevice=$UUID:crypt:allow-discards root=/dev/mapper/$VOLUME quiet rw" >> /boot/loader/entries/arch.conf
+arch-chroot echo "options cryptdevice=$UUID:$VOLUME_NAME:allow-discards root=/dev/mapper/$VOLUME quiet rw" >> /boot/loader/entries/arch.conf
 
 echo "Creating user"
 arch-chroot /mnt useradd -m -G wheel -s /bin/zsh $USER
