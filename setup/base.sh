@@ -82,13 +82,13 @@ arch-chroot /mnt passwd
 
 echo "Bootloader time"
 # https://wiki.archlinux.org/index.php/Systemd-boot
-arch-chroot bootctl --path=/boot install
-arch-chroot echo "title Arch Linux Encrypted" >> /boot/loader/entries/arch.conf
-arch-chroot echo "linux /vmlinuz-linux" >> /boot/loader/entries/arch.conf
-arch-chroot echo "initrd /intel-ucode.img" >> /boot/loader/entries/arch.conf
-arch-chroot echo "initrd /initramfs-linux.img" >> /boot/loader/entries/arch.conf
+arch-chroot /mnt bootctl --path=/boot install
+arch-chroot /mnt echo "title Arch Linux Encrypted" >> /boot/loader/entries/arch.conf
+arch-chroot /mnt echo "linux /vmlinuz-linux" >> /boot/loader/entries/arch.conf
+arch-chroot /mnt echo "initrd /intel-ucode.img" >> /boot/loader/entries/arch.conf
+arch-chroot /mnt echo "initrd /initramfs-linux.img" >> /boot/loader/entries/arch.conf
 UUID=$(blkid /dev/sda2 | awk '{print $2}' | sed 's/"//g')
-arch-chroot echo "options cryptdevice=$UUID:$VOLUME_NAME:allow-discards root=/dev/mapper/$VOLUME quiet rw" >> /boot/loader/entries/arch.conf
+arch-chroot /mnt echo "options cryptdevice=$UUID:$VOLUME_NAME:allow-discards root=/dev/mapper/$VOLUME quiet rw" >> /boot/loader/entries/arch.conf
 
 echo "Creating user"
 arch-chroot /mnt useradd -m -G wheel -s /bin/zsh $USER
