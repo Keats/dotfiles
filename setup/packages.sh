@@ -3,8 +3,6 @@ sudo pacman -Syu
 
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
-# https://bbs.archlinux.org/viewtopic.php?id=190380
-sudo dirmngr </dev/null
 
 # Enable multilib repo, this is witchery
 sudo sed -i ':begin;$!N;s/#\[multilib\]\n#Include/\[multilib\]\nInclude/;tbegin;P;D' /etc/pacman.conf
@@ -30,3 +28,6 @@ sudo pacman -S $(< pkglist.txt)
 
 echo "Installing AUR packages"
 yaourt -S --noconfirm $(< pkglist-aur.txt)
+
+echo "Installing rustup"
+curl https://sh.rustup.rs -sSf | sh
