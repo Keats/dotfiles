@@ -95,5 +95,5 @@ arch-chroot /mnt useradd -m -G wheel -s /bin/zsh $USER
 arch-chroot /mnt passwd $USER
 sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /mnt/etc/sudoers
 arch-chroot /mnt git clone $REPO /home/$USER/dotfiles
-arch-chroot /mnt chown $USER:$USER /home/$USER/dotfiles
+arch-chroot /mnt chown $USER:$USER -R /home/$USER/dotfiles
 echo "Base setup done, type reboot if you're happy"
