@@ -38,6 +38,6 @@ wmname LG3D
 
 eval "$(ssh-agent)"
 
-sxhkd &
-exec bspwm
-# exec i3
+# sxhkd &
+# exec bspwm
+exec i3

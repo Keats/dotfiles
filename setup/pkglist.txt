@@ -22,6 +22,7 @@ conky
 coreutils
 cryptsetup
 device-mapper
+dhclient
 dhcpcd
 dialog
 diffutils
@@ -58,13 +59,17 @@ gptfdisk
 graphicsmagick
 grep
 groff
+gsimplecal
 gvfs-gphoto2
 gvfs-mtp
 gzip
 higan
 htop
 i3lock
+i3status
+imagemagick
 inetutils
+intel-ucode
 iproute2
 iputils
 jfsutils
@@ -90,6 +95,8 @@ mplayer
 mpv
 nano
 netctl
+network-manager-applet
+networkmanager
 ntfs-3g
 numix-themes
 openssh
@@ -101,6 +108,7 @@ pcmciautils
 perl
 pgadmin3
 pkg-config
+powertop
 procps-ng
 psmisc
 pulseaudio
@@ -112,6 +120,7 @@ redshift
 reflector
 reiserfsprogs
 rsync
+s-nail
 scrot
 sed
 shadow
@@ -146,8 +155,6 @@ wget
 which
 wmname
 wpa_actiond
-xf86-input-keyboard
-xf86-input-mouse
 xf86-input-libinput
 xfsprogs
 xorg-server
@@ -158,7 +165,4 @@ xorg-xkill
 xsel
 xterm
 yaourt
-zeromq
 zsh
-imagemagick
-intel-ucode

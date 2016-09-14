@@ -1,0 +1,33 @@
+#!/usr/bin/bash
+
+get_battery() {
+  bat=$1 # 0 or 1
+  charge_value=`acpi -b | grep -o '[[:digit:]]\+%' | cut -d'%' -f1 | sed -n $((1 + ${bat}))p`
+  # So it looks like cat /sys/class/power_supply/BAT${bat}/status
+  # has the batteries mixed up compared to acpi
+  status=`acpi -b | grep -o 'Charging\|Full\|Discharging\|Unknown' | sed -n $((1 + ${bat}))p`
+  icon='\uf240'
+
+  if [[ $charge_value -lt 100 ]]; then
+    icon='\uf241'
+  elif [[ $charge_value -lt 50 ]]; then
+    icon='\uf242'
+  elif [[ $charge_value -lt 25 ]]; then
+    icon='\uf243'
+  elif [[ $charge_value -lt 10 ]]; then
+    icon='\uf244'
+  elif [[ $charge_value -lt 5 ]]; then
+    exit 33
+  fi
+
+  time=`acpi -b | sed -n $((1 + ${bat}))p | awk '{print $5}'  | cut -d':' -f 1,2`
+  if [[ $status = "Discharging" ]]; then
+    echo "${icon} ${charge_value}%  \uf175 (${time})"
+  elif [[ $status = "Charging" ]]; then
+    echo "${icon} ${charge_value}% \uf176"
+  else
+    echo "${icon} ${charge_value}%"
+  fi
+}
+
+echo -e $(get_battery 0) "" $(get_battery 1)

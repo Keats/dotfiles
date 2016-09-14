@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+current_vol_percent=`amixer | awk '/Front Left: Playback/ {gsub(/[\[\]]/,"",$5); print $5}'`
+current_vol_number=`amixer | awk '/Front Left: Playback/ {gsub(/[\[\]]/,"",$5); print $5}' | cut -d '%' -f 1`
+icon="\uf028"
+
+# Change icon if < 50%
+if [[ $current_vol_number -lt 50 ]]; then
+  icon="\uf027"
+fi
+
+# Change icon if silent
+if amixer get Master | grep -q off; then
+    icon="\uf026"
+fi
+
+# from the built-in script to interact from the bar
+case $BLOCK_BUTTON in
+  3) amixer -q sset Master toggle ;;  # right click, mute/unmute
+  4) amixer -q sset Master 5%+ unmute ;; # scroll up, increase
+  5) amixer -q sset Master 5%- unmute ;; # scroll down, decrease
+esac
+
+echo -e $icon" "$current_vol_percent

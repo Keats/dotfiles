@@ -1,0 +1,200 @@
+set $mod Mod4
+set $editor termite
+
+# Colours
+set $black       #282828
+set $darkblack   #1d2021
+set $white       #ffffff
+set $grey        #a89984
+set $red         #fb4934
+set $darkred     #cc241d
+set $transparent #00000000
+
+font pango:Fira Mono, FontAwesome 12
+
+set $ws1  "1:  "
+set $ws2  "2:  "
+set $ws3  "3:  "
+set $ws4  "4:  "
+set $ws5  "5:  "
+set $ws6  "6:  "
+
+gaps inner 10
+gaps outer 0
+smart_gaps on
+force_display_urgency_hint 0 ms
+focus_on_window_activation urgent
+
+
+#                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
+client.focused          $black      $black      $grey       $darkblack  $darkblack
+client.unfocused        $black      $black      $white      $darkblack  $darkblack
+client.focused_inactive $black      $black      $white      $darkblack  $darkblack
+client.urgent           $darkred    $darkred    $black      $darkred    $darkred
+client.background       $black
+
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec termite
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left 30px
+bindsym $mod+Shift+Down move down 30px
+bindsym $mod+Shift+Up move up 30px
+bindsym $mod+Shift+Right move right 30px
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+d focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+plus scratchpad show
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+# Sound
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+
+bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
+
+# Brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+bindsym $mod+Shift+t exec --no-startup-id thunar
+bindsym $mod+Shift+w exec --no-startup-id firefox
+bindsym $mod+l exec --no-startup-id $HOME/.config/i3/i3exit lock
+bindsym Print exec --no-startup-id scrot -q 100
+
+# launcher
+bindsym $mod+space exec --no-startup-id rofi -show run
+
+
+# resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+
+bar {
+        i3bar_command i3bar -t
+        status_command i3blocks
+        strip_workspace_numbers yes
+        height 35
+        tray_padding 5
+
+        colors {
+                statusline         $white
+                background         $transparent
+                separator          $transparent
+
+                #                  BORDER       BACKGROUND   TEXT
+                focused_workspace  $transparent $transparent $white
+                inactive_workspace $transparent $transparent $grey
+                active_workspace   $transparent $transparent $white
+                urgent_workspace   $darkred     $darkred     $white
+                binding_mode       $darkred     $darkred     $white
+        }
+}
+
+# remove titles
+new_window none
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
+for_window [class="(?i)gsimplecal"] floating enable, move up 30px, move left 70px
+
+assign [class="Skype"] → $ws3
+for_window [class="Skype"] tabbed
+
+exec --no-startup-id compton &
+exec --no-startup-id nm-applet &
+exec --no-startup-id i3-msg 'workspace $ws3; exec skype' &
+exec --no-startup-id i3-msg 'workspace $ws1; exec firefox' &
+exec --no-startup-id i3-msg 'workspace $ws1; exec google-chrome-stable' &
+exec --no-startup-id i3-msg 'workspace $ws2; exec termite' &

@@ -1,9 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/usr/share/oh-my-zsh
 
-# ls colours
-eval $(dircolors ~/.dircolors)
-
 ZSH_THEME="keats"
 plugins=(git sprunge archlinux virtualenvwrapper)
 
@@ -21,14 +18,16 @@ export EDITOR='vim'
 export PULSE_LATENCY_MSEC=60
 
 export WORKON_HOME=$HOME/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
+
 # For Go
 export GOPATH=$HOME/Code/go
-export PATH=$PATH:$GOPATH/bin:$HOME/.multirust/toolchains/stable/cargo/bin
+export PATH=$PATH:$GOPATH/bin
 
 # For Rust
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
-export RUST_SRC_PATH=/home/vincent/Github/rust/src
-source /usr/bin/virtualenvwrapper.sh
+export PATH=$PATH:$HOME/.cargo/bin
 
 alias subl='subl3'
 
@@ -38,3 +37,6 @@ alias bacpac-aur='pacman -Qqm > pkglist-aur.txt'
 source /usr/share/nvm/init-nvm.sh
 eval "$(direnv hook zsh)"
 
+alias when="date '+%Y-%m-%d %H:%M'"
+
+if [ -e /home/vincent/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vincent/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

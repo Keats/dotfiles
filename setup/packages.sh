@@ -1,4 +1,5 @@
 #!/bin/bash
+USER=vincent
 sudo pacman -Syu
 
 sudo pacman-key --init
@@ -13,7 +14,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Add pretty font rendering with infinality
-sudo pacman-key -r 962DDE58
+sudo pacman-key --keyserver pgp.mit.edu -r 962DDE58
 sudo pacman-key --lsign-key 962DDE58
 grep -q 'infinality-bundle' /etc/pacman.conf
 if [ $? -ne 0 ]; then
@@ -33,3 +34,15 @@ yaourt -S --noconfirm $(< pkglist-aur.txt)
 
 echo "Installing rustup"
 curl https://sh.rustup.rs -sSf | sh
+
+echo "Installing Nix"
+curl https://nixos.org/nix/install | sh
+
+# some systemctl enabling
+sudo systemctl enable tlp.service
+sudo systemctl enable tlp-sleep.service
+sudo systemctl enable NetworkManager.service
+sudo tlp start
+# docker stuff
+sudo systemctl enable docker
+sudo usermod -aG docker $USER

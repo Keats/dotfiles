@@ -5,6 +5,8 @@ git-crypt
 google-chrome
 google-talkplugin
 hugo
+i3-gaps-next-git
+i3blocks-gaps-git
 jdk
 lastpass
 lemonbar-xft-git
@@ -13,9 +15,11 @@ numix-icon-theme-git
 nvm
 oh-my-zsh-git
 pycharm-professional
+qt-installer-framework
 rofi-git
+skype
 trimage-git
 ttf-fantasque-sans
+ttf-font-awesome
 ttf-ms-fonts
 wrk
-xtitle-git

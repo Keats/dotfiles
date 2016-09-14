@@ -1,0 +1,24 @@
+command=/usr/lib/i3blocks/$BLOCK_NAME
+separator=false
+separator_block_width=15
+border_top=0
+border_left=0
+border_right=0
+border_bottom=4
+
+[volume]
+command=$HOME/.config/i3/scripts/volume
+interval=5
+border=#cc241d
+
+[battery]
+command=$HOME/.config/i3/scripts/battery
+instance=0
+interval=10
+border=#458588
+
+[time]
+label=  
+command=killall gsimplcal || echo "`date '+%H:%M'` "; [[ -z "${BLOCK_BUTTON}" ]] || gsimplecal &
+interval=5
+border=#928374
