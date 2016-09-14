@@ -57,8 +57,8 @@ arch-chroot /mnt locale-gen
 echo LANG=$LOCALE> /mnt/etc/locale.conf
 # Making sure uk keyboard is persisted
 echo KEYMAP=$KB_LAYOUT > /mnt/etc/vconsole.conf
-# Living in London
-arch-chroot /mnt ln -fs /usr/share/zoneinfo/Europe/London /etc/localtime
+# Living in France
+arch-chroot /mnt ln -fs /usr/share/zoneinfo/Europe/Paris /etc/localtime
 arch-chroot /mnt hwclock --systohc --utc
 
 echo "Setting up hostname"
