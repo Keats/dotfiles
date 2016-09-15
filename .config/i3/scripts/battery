@@ -10,15 +10,17 @@ get_battery() {
 
   if [[ $charge_value -lt 100 ]]; then
     icon='\uf241'
-  elif [[ $charge_value -lt 50 ]]; then
-    icon='\uf242'
-  elif [[ $charge_value -lt 25 ]]; then
-    icon='\uf243'
-  elif [[ $charge_value -lt 10 ]]; then
-    icon='\uf244'
-  elif [[ $charge_value -lt 5 ]]; then
-    exit 33
   fi
+  if [[ $charge_value -lt 50 ]]; then
+    icon='\uf242'
+  fi
+  if [[ $charge_value -lt 25 ]]; then
+    icon='\uf243'
+  fi
+  if [[ $charge_value -lt 10 ]]; then
+    icon='\uf244'
+  fi
+
 
   time=`acpi -b | sed -n $((1 + ${bat}))p | awk '{print $5}'  | cut -d':' -f 1,2`
   if [[ $status = "Discharging" ]]; then
