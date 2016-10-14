@@ -24,7 +24,7 @@ gaps outer 0
 smart_gaps on
 force_display_urgency_hint 0 ms
 focus_on_window_activation urgent
-
+focus_follows_mouse yes
 
 #                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
 client.focused          $black      $black      $grey       $darkblack  $darkblack
