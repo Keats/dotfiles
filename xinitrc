@@ -6,8 +6,8 @@
 
 start-pulseaudio-x11
 
-# london
-redshift -l 51.5:0 &
+# osaka
+redshift -l 34.6862970:135.5196610 &
 
 # Auto-mounting
 udiskie -2 &
