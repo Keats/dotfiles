@@ -13,15 +13,6 @@ if [ $? -ne 0 ]; then
     echo -e "\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" | sudo tee --append /etc/pacman.conf
 fi
 
-# Add pretty font rendering with infinality
-sudo pacman-key --keyserver pgp.mit.edu -r 962DDE58
-sudo pacman-key --lsign-key 962DDE58
-grep -q 'infinality-bundle' /etc/pacman.conf
-if [ $? -ne 0 ]; then
-    echo -e "\n[infinality-bundle]\nServer = http://bohoomil.com/repo/\$arch" | sudo tee --append /etc/pacman.conf
-    echo -e "\n[infinality-bundle-multilib]\nServer = http://bohoomil.com/repo/multilib/\$arch" | sudo tee --append /etc/pacman.conf
-fi
-
 sudo pacman -Sy
 # it's in pkglist.txt already but better to be explicit
 sudo pacman -S yaourt
@@ -31,6 +22,13 @@ sudo pacman -S $(< pkglist.txt)
 
 echo "Installing AUR packages"
 yaourt -S --noconfirm $(< pkglist-aur.txt)
+
+# Font rendering
+sudo ln -sf /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
+sudo ln -sf /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
+sudo ln -sf /etc/fonts/conf.avail/10-hinting-slight.conf /etc/fonts/conf.d
+sudo ln -sf /etc/fonts/conf.avail/30-infinality-aliases.conf /etc/fonts/conf.d
+echo -e "\nexport _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'" | sudo tee --append /etc/profile.d/jre.sh
 
 echo "Installing rustup"
 curl https://sh.rustup.rs -sSf | sh

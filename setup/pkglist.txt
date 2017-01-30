@@ -7,6 +7,7 @@ alsa-plugins
 alsa-utils
 android-udev
 anki
+arandr
 autoconf
 automake
 avahi
@@ -15,7 +16,7 @@ binutils
 bison
 bspwm
 bzip2
-cairo-infinality-ultimate
+cairo
 calibre
 compton
 conky
@@ -27,7 +28,9 @@ dhcpcd
 dialog
 diffutils
 docker
+dropbox
 e2fsprogs
+elixir
 fakeroot
 fcitx-configtool
 fcitx-gtk2
@@ -42,13 +45,15 @@ findutils
 firefox
 flashplugin
 flex
-fontconfig-infinality-ultimate
-freetype2-infinality-ultimate
+fontconfig
+fonts-tlwg
+freetype2
 gawk
 gcc
 gcc-fortran
 gcc-libs
 gettext
+gimp
 git
 glibc
 gnome-icon-theme
@@ -76,6 +81,7 @@ jfsutils
 lapack
 less
 lib32-gtk2
+libreoffice-fresh
 libtool
 licenses
 linux
@@ -97,6 +103,7 @@ nano
 netctl
 network-manager-applet
 networkmanager
+noto-fonts-emoji
 ntfs-3g
 numix-themes
 openssh
@@ -141,9 +148,9 @@ tlp
 transmission-gtk
 tree
 ttf-fira-mono
-ttf-tlwg
 udiskie
 udisks2
+unrar
 unzip
 usbutils
 util-linux
