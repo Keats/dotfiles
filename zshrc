@@ -16,7 +16,7 @@ export LANG=en_GB.UTF-8
 
 export EDITOR='vim'
 export PULSE_LATENCY_MSEC=60
-
+export ANDROID_HOME=$HOME/android-sdk
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
@@ -29,12 +29,13 @@ export PATH=$PATH:$GOPATH/bin
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
 export PATH=$PATH:$HOME/.cargo/bin
 
+# For flutter
+export PATH=$PATH:$HOME/Code/flutter/bin
 alias subl='subl3'
 
 # Saving installed packages in files
 alias bacpac='pacman -Qqen > pkglist.txt'
 alias bacpac-aur='pacman -Qqm > pkglist-aur.txt'
-source /usr/share/nvm/init-nvm.sh
 eval "$(direnv hook zsh)"
 
 alias when="date '+%Y-%m-%d %H:%M'"

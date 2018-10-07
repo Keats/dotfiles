@@ -1,5 +1,0 @@
-#!/usr/bin/bash
-
-icon='\uf073'
-datetime=`date "+%d %B %H:%M"`
-echo -e "${icon}  ${datetime}"

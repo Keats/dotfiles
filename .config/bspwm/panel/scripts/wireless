@@ -1,6 +1,0 @@
-#!/usr/bin/bash
-
-ssid=`iwconfig wlp3s0 | awk '/ESSID/ {gsub("ESSID:|\"","",$4); print $4}'`
-quality=`iwconfig wlp3s0 | awk '/Quality/ {gsub("Quality=","",$2); split($2,a,"/"); b = int(a[1] / a[2] * 100); print b}'`
-
-echo -e "\uf1eb ${ssid}"

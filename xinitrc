@@ -6,8 +6,8 @@
 
 start-pulseaudio-x11
 
-# osaka
-redshift -l 34.6862970:135.5196610 &
+# Italy
+redshift -l 42.5940479:12.295247 &
 
 # Auto-mounting
 udiskie -2 &
@@ -15,8 +15,6 @@ udiskie -2 &
 # Disable touchpad while typing
 syndaeamon -t -k -i 2 &
 setxkbmap gb
-
-skype &
 
 feh --bg-scale dotfiles/wallpaper.jpg
 

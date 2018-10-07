@@ -12,12 +12,12 @@ set $transparent #00000000
 
 font pango:Fira Mono, FontAwesome 12
 
-set $ws1  "1:  "
-set $ws2  "2:  "
-set $ws3  "3:  "
-set $ws4  "4:  "
-set $ws5  "5:  "
-set $ws6  "6:  "
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
 
 gaps inner 10
 gaps outer 0
@@ -157,7 +157,7 @@ mode "resize" {
 
 
 bar {
-        i3bar_command i3bar -t
+        i3bar_command i3bar
         status_command i3blocks
         strip_workspace_numbers yes
         height 35
@@ -189,12 +189,7 @@ for_window [window_type="menu"] floating enable
 
 for_window [class="(?i)gsimplecal"] floating enable, move up 30px, move left 70px
 
-assign [class="Skype"] → $ws3
 for_window [class="Skype"] tabbed
 
-exec --no-startup-id compton &
+exec --no-startup-id compton -b &
 exec --no-startup-id nm-applet &
-exec --no-startup-id i3-msg 'workspace $ws3; exec skype' &
-exec --no-startup-id i3-msg 'workspace $ws1; exec firefox' &
-exec --no-startup-id i3-msg 'workspace $ws1; exec google-chrome-stable' &
-exec --no-startup-id i3-msg 'workspace $ws2; exec termite' &

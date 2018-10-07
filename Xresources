@@ -10,7 +10,6 @@ Xft.lcdfilter: lcddefault
 rofi.font: Fira Mono 12
 rofi.location: 0
 rofi.width: 100
-rofi.opacity: 90
 !                    bg       fg      altbg    hlbg     hlfg
 rofi.color-normal: #282828, #ebdbb2, #282828, #ebdbb2, #282828
 rofi.color-urgent: #282828, #ebdbb2, #282828, #ebdbb2, #282828
