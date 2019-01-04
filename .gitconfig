@@ -52,3 +52,5 @@
     subup = submodule update --init
     tags = tag -l
     brdel = branch -D
+    undo = reset HEAD~
+    del-branches = git branch | grep -v "master" | xargs git branch -D

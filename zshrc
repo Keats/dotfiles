@@ -16,7 +16,8 @@ export LANG=en_GB.UTF-8
 
 export EDITOR='vim'
 export PULSE_LATENCY_MSEC=60
-export ANDROID_HOME=$HOME/android-sdk
+export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
@@ -31,6 +32,7 @@ export PATH=$PATH:$HOME/.cargo/bin
 
 # For flutter
 export PATH=$PATH:$HOME/Code/flutter/bin
+
 alias subl='subl3'
 
 # Saving installed packages in files

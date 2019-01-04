@@ -25,17 +25,10 @@ xsetroot -cursor_name left_ptr &
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 
-# Japanese keyboard
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-fcitx &
 # https://wiki.archlinux.org/index.php/Dwm#Fixing_misbehaving_Java_applications
 # applies to bspwm as well
 wmname LG3D
 
 eval "$(ssh-agent)"
 
-# sxhkd &
-# exec bspwm
 exec i3
