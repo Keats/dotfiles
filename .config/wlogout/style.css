@@ -1,0 +1,54 @@
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+window {
+    font-family: JetBrainsMono Nerd Font, FontAwesome;
+    font-size: 16pt;
+    font-weight: bold;
+    background-color: rgba(24, 27, 32, 0.2);
+  }
+  
+  button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    background-color: #1d2021; /* Gruvbox dark bg0_h */
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s ease-in;
+    box-shadow: 0 0 10px 2px transparent;
+    border-radius: 36px;
+    color: #ebdbb2; /* Gruvbox fg */
+    border-color: #ebdbb2;
+    margin: 10px;
+  }
+
+
+button:focus {
+  box-shadow: none;
+  background-size : 20%;
+}
+
+button:hover {
+    background-size: 25%;
+    box-shadow: 0 0 10px 3px rgba(0,0,0,.4);
+    background-color: #3c3836;
+    transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.5s ease-in;
+  }
+
+#shutdown {
+  background-image: image(url("./icons/power.png"));
+}
+
+#logout {
+  background-image: image(url("./icons/logout.png"));
+}
+
+#reboot {
+  background-image: image(url("./icons/restart.png"));
+}
+
+#sleep {
+  background-image: image(url("./icons/sleep.png"));
+}

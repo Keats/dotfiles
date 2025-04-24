@@ -1,0 +1,145 @@
+@import "gruvbox.css";
+
+* {
+  font-family: JetBrainsMono Nerd Font, FontAwesome;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* === Waybar Base === */
+window#waybar {
+  background: transparent;
+}
+
+window#waybar > box {
+  background-color: @background-primary;
+  color: @foreground-secondary;
+  border-radius: 0px 0px 15px 15px;
+  border-bottom: 5px solid @waybar-border;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Workspaces Module === */
+#workspaces {
+  margin: 8px 5px;
+  margin-left: 15px;
+  background-color: @workspace-container-background;
+  border-radius: 10px;
+  padding: 3px;
+  border-bottom: 3px solid @workspace-container-border;
+}
+
+#workspaces button {
+  margin: 0 2px;
+  padding: 0 6px;
+  min-width: 26px;
+  border-radius: 6px;
+  background: @workspace-button-background;
+  color: @workspace-button-text;
+  border-bottom: 3px solid transparent;
+}
+
+#workspaces button:hover {
+  background-color: @workspace-button-hover-background;
+  color: @workspace-button-hover-text;
+  border-bottom: 3px solid @workspace-button-hover-border;
+}
+
+#workspaces button.active {
+  background-color: @workspace-button-active-background;
+  color: @workspace-button-active-text;
+  border-radius: 6px;
+  border-bottom: 3px solid @workspace-button-active-border;
+}
+
+/* === Basic Module Styling === */
+#clock,
+#wireplumber,
+#tray,
+#cpu,
+#memory,
+#custom-poweroff,
+#custom-reboot,
+#custom-lock {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+}
+
+/* === Power Controls === */
+#custom-poweroff {
+  background-color: @power-off-background;
+  color: @power-off-text;
+  margin-right: 15px;
+  padding-left: 20px;
+  padding-right: 23px;
+  border-radius: 10px;
+  border-bottom: 5px solid @power-off-border;
+}
+
+#custom-reboot {
+  background-color: @reboot-background;
+  color: @reboot-text;
+  border-radius: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom: 5px solid @reboot-border;
+}
+
+#custom-lock {
+  background-color: @lock-background;
+  color: @lock-text;
+  border-radius: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom: 5px solid @lock-border;
+}
+
+/* === Clock === */
+#clock {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: @clock-background;
+  color: @clock-text;
+  border-bottom: 5px solid @clock-border;
+}
+
+/* === System Monitors === */
+#cpu {
+  background-color: @cpu-background;
+  color: @cpu-text;
+  border-bottom: 5px solid @cpu-border;
+  letter-spacing: 2px;
+}
+
+#memory {
+  background-color: @memory-background;
+  color: @memory-text;
+  border-bottom: 5px solid @memory-border;
+  letter-spacing: 2px;
+}
+
+/* === Audio Module === */
+#wireplumber {
+  background-color: @audio-background;
+  color: @audio-text;
+  border-bottom: 5px solid @audio-border;
+}
+
+/* === Transitions for Power Menu === */
+#group-power:hover #custom-poweroff {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* === Tray Module === */
+#tray {
+  background-color: @tray-background;
+  color: @tray-text;
+  border-bottom: 5px solid @tray-border;
+}

@@ -1,0 +1,61 @@
+/* Catppuccin Mocha Theme Variables */
+
+/* Base Colors - Official Catppuccin Mocha */
+@define-color background-primary #1e1e2e; /* base */
+@define-color foreground-primary #cdd6f4; /* text */
+@define-color foreground-secondary #bac2de; /* subtext1 */
+@define-color foreground-tertiary #a6adc8; /* subtext0 */
+@define-color foreground-quinary #9399b2; /* overlay2 */
+@define-color background-quinary #585b70; /* surface2 */
+
+/* Text Colors */
+@define-color text-dark #11111b; /* crust - darker than base for better contrast */
+@define-color text-light @foreground-primary;
+
+/* Module Colors - Using Official Catppuccin Colors with Fixed Borders */
+@define-color clock-background #94e2d5; /* teal */
+@define-color clock-text @text-dark;
+@define-color clock-border #6ad0c0; /* darker teal for border */
+
+@define-color cpu-background #89b4fa; /* blue */
+@define-color cpu-text @text-dark;
+@define-color cpu-border #6a98e0; /* darker blue for border */
+
+@define-color memory-background #a6e3a1; /* green */
+@define-color memory-text @text-dark;
+@define-color memory-border #7dcb78; /* darker green for border */
+
+@define-color audio-background #74c7ec; /* sapphire */
+@define-color audio-text @text-dark;
+@define-color audio-border #57add1; /* darker sapphire for border */
+
+@define-color tray-background #45475a; /* surface1 */
+@define-color tray-text @foreground-primary;
+@define-color tray-border #313244; /* surface0 */
+
+@define-color power-off-background #f38ba8; /* red */
+@define-color power-off-text @text-dark;
+@define-color power-off-border #d6748f; /* darker red for border */
+
+@define-color reboot-background #fab387; /* peach */
+@define-color reboot-text @text-dark;
+@define-color reboot-border #e09670; /* darker peach for border */
+
+@define-color lock-background #f9e2af; /* yellow */
+@define-color lock-text @text-dark;
+@define-color lock-border #dfcb8e; /* darker yellow for border */
+
+/* Waybar Structural Colors */
+@define-color waybar-border #313244; /* surface0 */
+
+/* Workspaces Module Colors - Using Official Surface Gradients */
+@define-color workspace-container-background #313244; /* surface0 */
+@define-color workspace-container-border #45475a; /* surface1 */
+@define-color workspace-button-background #45475a; /* surface1 */
+@define-color workspace-button-text @foreground-tertiary;
+@define-color workspace-button-hover-background #585b70; /* surface2 */
+@define-color workspace-button-hover-text @foreground-primary;
+@define-color workspace-button-hover-border #6c7086; /* overlay0 */
+@define-color workspace-button-active-background #cba6f7; /* mauve - primary accent color */
+@define-color workspace-button-active-text @text-dark;
+@define-color workspace-button-active-border #aa8ad6; /* darker mauve for border */

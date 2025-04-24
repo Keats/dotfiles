@@ -1,0 +1,60 @@
+/* Base Colors */
+@define-color background-primary #282828;
+@define-color foreground-primary #fbf1c7;
+@define-color foreground-secondary #ebdbb2;
+@define-color foreground-tertiary #d5c4a1;
+@define-color foreground-quinary #a89984;
+@define-color background-quinary #7c6f64;
+
+/* Text Colors */
+@define-color text-dark @background-primary;
+@define-color text-light @foreground-primary;
+
+/* Module Colors */
+@define-color clock-background #689d6a;
+@define-color clock-text @text-dark;
+@define-color clock-border #427b58;
+
+@define-color cpu-background #458588;
+@define-color cpu-text @text-light;
+@define-color cpu-border #076678;
+
+@define-color memory-background #98971a;
+@define-color memory-text @text-light;
+@define-color memory-border #79740e;
+
+/* UPDATED: Changed audio/wireplumber to purple from the Gruvbox palette */
+@define-color audio-background #b16286;
+@define-color audio-text @text-light;
+@define-color audio-border #8f3f71;
+
+@define-color tray-background @foreground-quinary;
+@define-color tray-text @text-dark;
+@define-color tray-border @background-quinary;
+
+@define-color power-off-background #cc241d;
+@define-color power-off-text @text-light;
+@define-color power-off-border #9d0006;
+
+@define-color reboot-background #d65d0e;
+@define-color reboot-text @text-light;
+@define-color reboot-border #af3a03;
+
+@define-color lock-background #d79921;
+@define-color lock-text @text-dark;
+@define-color lock-border #b57614;
+
+/* Waybar Structural Colors */
+@define-color waybar-border @background-quinary;
+
+/* Workspaces Module Colors */
+@define-color workspace-container-background #6b4035;
+@define-color workspace-container-border #88392b;
+@define-color workspace-button-background #513b2f;
+@define-color workspace-button-text @foreground-tertiary;
+@define-color workspace-button-hover-background #7c4e3f;
+@define-color workspace-button-hover-text @foreground-primary;
+@define-color workspace-button-hover-border @foreground-quinary;
+@define-color workspace-button-active-background #d79921;
+@define-color workspace-button-active-text @text-dark;
+@define-color workspace-button-active-border #b57614;

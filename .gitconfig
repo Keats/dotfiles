@@ -1,0 +1,19 @@
+[user]
+    name = Vincent Prouillet
+    email = github@vincentprouillet.com
+
+[color]
+    ui = true
+
+[push]
+    default = simple
+
+[alias]
+    st = status
+    ci = commit
+    cm = commit -m
+    co = checkout
+    a = add
+    amend = commit --amend
+    tags = tag -l
+    l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative

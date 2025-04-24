@@ -1,0 +1,59 @@
+/* Base Colors */
+@define-color background-primary #2e3440;
+@define-color foreground-primary #eceff4;
+@define-color foreground-secondary #e5e9f0;
+@define-color foreground-tertiary #d8dee9;
+@define-color foreground-quinary #aeb3bb;
+@define-color background-quinary #4c566a;
+
+/* Text Colors */
+@define-color text-dark #2e3440;
+@define-color text-light @foreground-primary;
+
+/* Module Colors */
+@define-color clock-background #8fbcbb;
+@define-color clock-text @text-dark;
+@define-color clock-border #7ea9a9;
+
+@define-color cpu-background #81a1c1;
+@define-color cpu-text @text-light;
+@define-color cpu-border #6b8aaa;
+
+@define-color memory-background #a3be8c;
+@define-color memory-text @text-dark;
+@define-color memory-border #8ca976;
+
+@define-color audio-background #88c0d0;
+@define-color audio-text @text-dark;
+@define-color audio-border #75abb9;
+
+@define-color tray-background #4c566a;
+@define-color tray-text @foreground-primary;
+@define-color tray-border #3b4252;
+
+@define-color power-off-background #bf616a;
+@define-color power-off-text @text-light;
+@define-color power-off-border #a54c55;
+
+@define-color reboot-background #d08770;
+@define-color reboot-text @text-dark;
+@define-color reboot-border #b9735e;
+
+@define-color lock-background #ebcb8b;
+@define-color lock-text @text-dark;
+@define-color lock-border #d6b876;
+
+/* Waybar Structural Colors */
+@define-color waybar-border #4c566a;
+
+/* Workspaces Module Colors */
+@define-color workspace-container-background #3b4252;
+@define-color workspace-container-border #2e3440;
+@define-color workspace-button-background #434c5e;
+@define-color workspace-button-text @foreground-tertiary;
+@define-color workspace-button-hover-background #4c566a;
+@define-color workspace-button-hover-text @foreground-primary;
+@define-color workspace-button-hover-border #5e6779;
+@define-color workspace-button-active-background #5e81ac;
+@define-color workspace-button-active-text @foreground-primary;
+@define-color workspace-button-active-border #7797c4;
