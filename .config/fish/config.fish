@@ -6,3 +6,8 @@ end
 set -gx PATH $PATH /home/vincent/.lmstudio/bin
 # End of LM Studio CLI section
 
+
+fish_add_path "$HOME/.local/bin"
+fish_add_path "$HOME/.cargo/bin"
+alias claude="/home/vincent/.claude/local/claude"
+starship init fish | source

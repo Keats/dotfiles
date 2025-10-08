@@ -3,6 +3,17 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    EDITOR "nano"
+    _JAVA_AWT_WM_NONREPARENTING "1"
+    DISPLAY ":0"
+}
+
+overview {
+    zoom 0.6
+}
+
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
@@ -10,6 +21,7 @@ input {
     keyboard {
         xkb {
             layout "us"
+            // variant "intl"
             // You can set rules, model, layout, variant and options.
             // For more information, see xkeyboard-config(7).
 
@@ -30,11 +42,11 @@ input {
     }
     
     // Uncomment this to make the mouse warp to the center of newly focused windows.
-    warp-mouse-to-focus
+    // warp-mouse-to-focus
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    focus-follows-mouse max-scroll-amount="5%"
+    // focus-follows-mouse max-scroll-amount="5%"
 }
 
 // You can configure outputs by their name, which you can find
@@ -59,34 +71,32 @@ layout {
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
     center-focused-column "never"
-    always-center-single-column
+    // always-center-single-column
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
         // Proportion sets the width as a fraction of the output width, taking gaps into account.
         // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
         // The default preset widths are 1/3, 1/2 and 2/3 of the output.
-        proportion 0.25
+        proportion 0.33333
         proportion 0.5
-        proportion 0.75
-        proportion 1.0
+        proportion 0.66667
 
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
     }
 
     // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
-    preset-window-heights { 
-        proportion 0.25
+    preset-window-heights {
+        proportion 0.33333
         proportion 0.5
-        proportion 0.75
+        proportion 0.66667
         proportion 1.0
     }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
-    // default-column-width {}
+    default-column-width { proportion 0.5; }
 
     // By default focus ring and border are rendered as a solid background rectangle
     // behind windows. That is, they will show up through semitransparent windows.
@@ -102,10 +112,10 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-        off
+        //off
 
         // How many logical pixels the ring extends out from the windows.
-        width 1
+        width 3
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -113,10 +123,10 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#7fc8ff"
+        active-color "#A7C080"
 
         // Color of the ring on inactive monitors.
-        inactive-color "#505050"
+        inactive-color "#D3C6AA"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -138,7 +148,7 @@ layout {
     border {
         // The settings are the same as for the focus ring.
         // If you enable the border, you probably want to disable the focus ring.
-        // off
+        off
 
         width 2
 
@@ -199,17 +209,22 @@ layout {
     }
 }
 
-environment {
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-    EDITOR "nano"
-    _JAVA_AWT_WM_NONREPARENTING "1"
-    DISPLAY ":0"
-}
+// for x
+spawn-at-startup "xwayland-satellite"
+// Notifications
+spawn-at-startup "mako"
+// Bar
+spawn-sh-at-startup "~/.config/waybar/start.sh"
+// Blue lights
+spawn-sh-at-startup "wlsunset -l 43.6 -L 6"
+// Wallpaper
+spawn-sh-at-startup "swaybg -i ~/Pictures/nature1.jpeg"
+spawn-sh-at-startup "swayidle -w timeout 600 'niri msg action power-off-monitors'"
+// Communication
+spawn-at-startup "slack"
+spawn-sh-at-startup "signal-desktop --use-tray-icon --enable-features=UseOzonePlatform --ozone-platform=wayland"
+spawn-at-startup "rustrover"
 
-workspace "1"
-workspace "2"
-workspace "3"
-workspace ""
 
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
@@ -217,22 +232,9 @@ workspace ""
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
 
-// for x
-spawn-at-startup "xwayland-satellite"
- // Notifications
-spawn-at-startup "mako"
-// Bar
-spawn-at-startup "~/.config/waybar/start.sh"
-// Blue lights
-spawn-at-startup "wlsunset -l 43.6 -L 6 &"
-// Wallpaper
-spawn-at-startup "swaybg -i ~/Pictures/nature1.jpeg &"
-
-spawn-at-startup "signal-desktop --use-tray-icon &"
-
 cursor {
   xcursor-theme "catppuccin-macchiato-lavender-cursors"
-  xcursor-size 48
+  xcursor-size 24
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -265,6 +267,12 @@ hotkey-overlay {
     skip-at-startup
 }
 
+workspace "1"
+workspace "2"
+workspace "3"
+workspace "4"
+workspace "5"
+
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
@@ -285,18 +293,29 @@ window-rule {
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-maximized true
     open-floating true
+    open-on-workspace "1"
+}
+
+window-rule {
+    match at-startup=true app-id="jetbrains-rustrover"
+    open-maximized true
+    open-on-workspace "2"
 }
 
 window-rule {
     match at-startup=true app-id="signal"
+    default-column-width { proportion 0.25; }
     block-out-from "screencast"
-    open-on-workspace ""
+    open-on-workspace "3"
 }
 
 window-rule {
     match at-startup=true app-id="Slack"
-    open-on-workspace ""
+    default-column-width { proportion 0.75; }
+    block-out-from "screencast"
+    open-on-workspace "3"
 }
 
 window-rule {
@@ -339,7 +358,7 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 20
     clip-to-geometry true
 }
 
@@ -406,8 +425,8 @@ binds {
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
     // ...
 
-    Mod+Shift+Page_Down { move-workspace-down; }
-    Mod+Shift+Page_Up   { move-workspace-up; }
+    // Mod+Shift+Page_Down { move-workspace-down; }
+    // Mod+Shift+Page_Up   { move-workspace-up; }
 
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.
@@ -415,10 +434,10 @@ binds {
     // To avoid scrolling through workspaces really fast, you can use
     // the cooldown-ms property. The bind will be rate-limited to this value.
     // You can set a cooldown on any bind, but it's most useful for the wheel.
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+    // Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    // Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    // Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    // Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
     // You can refer to workspaces by index. However, keep in mind that
     // niri is a dynamic workspace system, so these commands are kind of
@@ -460,9 +479,9 @@ binds {
     Mod+BracketRight { consume-or-expel-window-right; }
 
     // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
+    // Mod+Comma  { consume-window-into-column; }
     // Expel the bottom window from the focused column to the right.
-    Mod+Period { expel-window-from-column; }
+    // Mod+Period { expel-window-from-column; }
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
@@ -508,7 +527,7 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
+    Mod+Ctrl+S { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
@@ -531,6 +550,6 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     // Toggle tabbed view
-    Mod+K { toggle-column-tabbed-display; }
+    // Mod+K { toggle-column-tabbed-display; }
 
 }
